@@ -18,6 +18,7 @@ COPY ProjetICO ./
 
 RUN composer config --no-plugins allow-plugins.symfony/flex true
 
+
 # Ajouter un utilisateur non-root
 RUN useradd -ms /bin/bash symfony
 RUN chown -R symfony:symfony /var/www/symfony
@@ -28,4 +29,4 @@ RUN chown -R symfony:symfony /var/www/symfony
 USER root
 RUN chown -R www-data:www-data /var/www/symfony
 
-CMD bash -c "composer install && php -S 0.0.0.0:8000 -t public"
+CMD bash -c "composer install && composer require twig && composer require symfony/twig-bundle && php -S 0.0.0.0:8000 -t public"
