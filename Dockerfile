@@ -13,7 +13,7 @@ RUN mkdir -p /var/www/symfony
 WORKDIR /var/www/symfony
 COPY ProjetICO ./
 
-RUN composer config --no-plugins allow-plugins.symfony/flex true
+RUN composer config --no-plugins allow-plugins.symfony/flex true 
 
 RUN composer install
 
