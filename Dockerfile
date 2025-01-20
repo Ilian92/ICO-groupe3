@@ -16,6 +16,7 @@ COPY ProjetICO ./
 RUN composer config --no-plugins allow-plugins.symfony/flex true 
 
 RUN composer install
+RUN composer update
 
 RUN composer dump-autoload --optimize
 
