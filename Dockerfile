@@ -4,7 +4,10 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     libpq-dev \
-    && docker-php-ext-install pdo_mysql
+    curl \
+    libxml2-dev \
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install xml
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -13,13 +16,16 @@ RUN mkdir -p /var/www/symfony
 WORKDIR /var/www/symfony
 COPY ProjetICO ./
 
-RUN composer config --no-plugins allow-plugins.symfony/flex true 
+RUN composer config --no-plugins allow-plugins.symfony/flex true
 
-RUN composer install
-RUN composer update
+# Ajouter un utilisateur non-root
+RUN useradd -ms /bin/bash symfony
+RUN chown -R symfony:symfony /var/www/symfony
 
-RUN composer dump-autoload --optimize
+# Exécuter les commandes composer en tant qu'utilisateur non-root
 
+# Revenir à l'utilisateur root pour changer les permissions
+USER root
 RUN chown -R www-data:www-data /var/www/symfony
 
-CMD php -S 0.0.0.0:8000 -t public
+CMD bash -c "composer install && php -S 0.0.0.0:8000 -t public"
