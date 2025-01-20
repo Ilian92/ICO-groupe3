@@ -19,4 +19,4 @@ RUN composer install
 
 RUN chown -R www-data:www-data /var/www/symfony
 
-CMD php -S 0.0.0.0:8000 -t public
+CMD php -S 0.0.0.0:8000 -t public 
