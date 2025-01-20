@@ -17,6 +17,8 @@ RUN composer config --no-plugins allow-plugins.symfony/flex true
 
 RUN composer install
 
+RUN composer dump-autoload --optimize
+
 RUN chown -R www-data:www-data /var/www/symfony
 
-CMD php -S 0.0.0.0:8000 -t public 
+CMD php -S 0.0.0.0:8000 -t public
