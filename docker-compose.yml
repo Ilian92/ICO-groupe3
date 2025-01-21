@@ -14,7 +14,7 @@ services:
       - APP_SECRET=91a941689e82c11fa04a5d0296b63f1b
 
   db:
-    image: mariadb:latest
+    image: mysql:latest
     container_name: symfony_db
     environment:
       MYSQL_ROOT_PASSWORD: root

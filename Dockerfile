@@ -28,4 +28,7 @@ RUN chown -R symfony:symfony /var/www/symfony
 USER root
 RUN chown -R www-data:www-data /var/www/symfony
 
+# Ajouter cette ligne pour installer l'extension pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql
+
 CMD bash -c "composer install && php -S 0.0.0.0:8000 -t public && composer require twig && composer require symfony/twig-bundle"
