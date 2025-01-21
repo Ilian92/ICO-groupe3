@@ -14,7 +14,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN mkdir -p /var/www/symfony
 
 WORKDIR /var/www/symfony
-COPY ProjetICO ./
+COPY ./ ./
 
 RUN composer config --no-plugins allow-plugins.symfony/flex true
 
