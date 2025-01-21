@@ -6,6 +6,8 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 class Users
@@ -16,15 +18,21 @@ class Users
     private ?int $id = null;
 
     #[ORM\Column(length: 320)]
+    #[Assert\NotBlank]
+    #[Assert\Email]
     private ?string $email = null;
 
     #[ORM\Column(length: 72)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 8, minMessage: "Le mot de passe doit comporter au moins 8 caractères.")]
     private ?string $password = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank]
     private ?string $first_name = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank]
     private ?string $last_name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -46,6 +54,7 @@ class Users
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->created_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
