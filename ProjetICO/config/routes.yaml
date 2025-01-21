@@ -11,3 +11,7 @@ home:
 rules:
   path: /regles
   controller: App\Controller\RulesController::index
+
+register:
+  path: /register
+  controller: App\Controller\RegisterController::index

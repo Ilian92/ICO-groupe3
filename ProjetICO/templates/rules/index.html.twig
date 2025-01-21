@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page des règles{% endblock %}
+{% block title %}Règles{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/rules.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Bienvenue sur la page des règles!</h1>
+    <div class="rules">
+        <h1>Règles du jeu</h1>
+        <p>Voici les règles du jeu...</p>
+    </div>
 {% endblock %}
