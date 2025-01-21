@@ -24,7 +24,6 @@ class Users
 
     #[ORM\Column(length: 72)]
     #[Assert\NotBlank]
-    #[Assert\Length(min: 8, minMessage: "Le mot de passe doit comporter au moins 8 caractères.")]
     private ?string $password = null;
 
     #[ORM\Column(length: 100)]

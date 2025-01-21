@@ -45,30 +45,35 @@ class RegisterController extends AbstractController
             // Check if the email already exists in the database
             $existingUser = $entityManager->getRepository(Users::class)->findOneBy(['email' => $user->getEmail()]);
             if ($existingUser) {
-                // If the email already exists, add an error to the form and return the view
-                $form->addError(new \Symfony\Component\Form\FormError('This email address is already in use.'));
-                return $this->render('register/register.html.twig', [
-                    'form' => $form->createView(),
-                ]);
+                $errorMessage[] = "L'email est déjà utilisé.";
+            }
+
+            if (strlen($user->getPassword()) < 8) {
+                $errorMessage[] = "Le mot de passe doit comporter au moins 8 caractères.";
             }
             // Hash the password
             $hashedPassword = password_hash($user->getPassword(), PASSWORD_DEFAULT);
             $user->setPassword($hashedPassword);
 
-            // Set the createdAt field (automatically set to current time)
-            $user->setCreatedAt(new \DateTimeImmutable());
+            if (empty($errorMessage)) {
+                // Encoder le mot de passe avant de l'enregistrer
+                $user->setPassword($hashedPassword);
 
-            // Persist the user to the database
-            $entityManager->persist($user);
-            $entityManager->flush();
+                $user->setCreatedAt(new \DateTimeImmutable());
 
-            // Redirect or provide feedback to the user
-            $this->addFlash('success', 'Registration successful!');
-            return $this->redirectToRoute('login'); // Or any other route
+                // Enregistrement de l'utilisateur dans la base de données
+                $entityManager->persist($user);
+                $entityManager->flush();
+
+                // Redirection après la création
+                $this->addFlash('success', 'Registration réussi !');
+                return $this->redirectToRoute('login');
+            }
         }
 
         return $this->render('register/register.html.twig', [
             'form' => $form->createView(),
+            'errorMessage' => $errorMessage,
         ]);
     }
 }
