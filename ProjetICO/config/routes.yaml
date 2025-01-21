@@ -1,0 +1,17 @@
+controllers:
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+
+home:
+  path: /
+  controller: App\Controller\HomeController::index
+
+rules:
+  path: /regles
+  controller: App\Controller\RulesController::index
+
+cards:
+  path: /cartes
+  controller: App\Controller\CardsController::index
