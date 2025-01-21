@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrdersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,24 @@ class Orders
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
+
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?OrderStatus $status_id = null;
+
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    private ?Users $user_id = null;
+
+    /**
+     * @var Collection<int, OrderItems>
+     */
+    #[ORM\OneToMany(targetEntity: OrderItems::class, mappedBy: 'order_id')]
+    private Collection $orderItems;
+
+    public function __construct()
+    {
+        $this->orderItems = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +80,60 @@ class Orders
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): static
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getStatusId(): ?OrderStatus
+    {
+        return $this->status_id;
+    }
+
+    public function setStatusId(?OrderStatus $status_id): static
+    {
+        $this->status_id = $status_id;
+
+        return $this;
+    }
+
+    public function getUserId(): ?Users
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(?Users $user_id): static
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OrderItems>
+     */
+    public function getOrderItems(): Collection
+    {
+        return $this->orderItems;
+    }
+
+    public function addOrderItem(OrderItems $orderItem): static
+    {
+        if (!$this->orderItems->contains($orderItem)) {
+            $this->orderItems->add($orderItem);
+            $orderItem->setOrderId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderItem(OrderItems $orderItem): static
+    {
+        if ($this->orderItems->removeElement($orderItem)) {
+            // set the owning side to null (unless already changed)
+            if ($orderItem->getOrderId() === $this) {
+                $orderItem->setOrderId(null);
+            }
+        }
 
         return $this;
     }
