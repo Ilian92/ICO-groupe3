@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PacksRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,31 @@ class Packs
 
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
+
+    /**
+     * @var Collection<int, OrderItems>
+     */
+    #[ORM\OneToMany(targetEntity: OrderItems::class, mappedBy: 'pack_id')]
+    private Collection $orderItems;
+
+    /**
+     * @var Collection<int, Cards>
+     */
+    #[ORM\OneToMany(targetEntity: Cards::class, mappedBy: 'pack_id')]
+    private Collection $cards;
+
+    /**
+     * @var Collection<int, Rules>
+     */
+    #[ORM\OneToMany(targetEntity: Rules::class, mappedBy: 'pack_id')]
+    private Collection $rules;
+
+    public function __construct()
+    {
+        $this->orderItems = new ArrayCollection();
+        $this->cards = new ArrayCollection();
+        $this->rules = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +117,96 @@ class Packs
     public function setCreatedAt(\DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OrderItems>
+     */
+    public function getOrderItems(): Collection
+    {
+        return $this->orderItems;
+    }
+
+    public function addOrderItem(OrderItems $orderItem): static
+    {
+        if (!$this->orderItems->contains($orderItem)) {
+            $this->orderItems->add($orderItem);
+            $orderItem->setPackId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderItem(OrderItems $orderItem): static
+    {
+        if ($this->orderItems->removeElement($orderItem)) {
+            // set the owning side to null (unless already changed)
+            if ($orderItem->getPackId() === $this) {
+                $orderItem->setPackId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Cards>
+     */
+    public function getCards(): Collection
+    {
+        return $this->cards;
+    }
+
+    public function addCard(Cards $card): static
+    {
+        if (!$this->cards->contains($card)) {
+            $this->cards->add($card);
+            $card->setPackId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCard(Cards $card): static
+    {
+        if ($this->cards->removeElement($card)) {
+            // set the owning side to null (unless already changed)
+            if ($card->getPackId() === $this) {
+                $card->setPackId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Rules>
+     */
+    public function getRules(): Collection
+    {
+        return $this->rules;
+    }
+
+    public function addRule(Rules $rule): static
+    {
+        if (!$this->rules->contains($rule)) {
+            $this->rules->add($rule);
+            $rule->setPackId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRule(Rules $rule): static
+    {
+        if ($this->rules->removeElement($rule)) {
+            // set the owning side to null (unless already changed)
+            if ($rule->getPackId() === $this) {
+                $rule->setPackId(null);
+            }
+        }
 
         return $this;
     }
