@@ -29,4 +29,4 @@ RUN chown -R symfony:symfony /var/www/symfony
 USER root
 RUN chown -R www-data:www-data /var/www/symfony
 
-CMD bash -c "composer install && composer require twig && composer require symfony/twig-bundle && php -S 0.0.0.0:8000 -t public"
+CMD bash -c "composer require symfony/orm-pack && composer install && composer require twig && composer require symfony/twig-bundle && php -S 0.0.0.0:8000 -t public"

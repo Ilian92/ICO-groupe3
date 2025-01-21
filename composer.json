@@ -1,0 +1,6 @@
+{
+    "require": {
+        "symfony/twig-bundle": "^7.2",
+        "doctrine/orm": "*"
+    }
+}
