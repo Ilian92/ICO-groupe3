@@ -2,6 +2,11 @@
 
 {% block title %}Créer un utilisateur{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+{% endblock %}
+
 {% block body %}
     <h1>Créer un utilisateur</h1>
 
@@ -15,8 +20,8 @@
     </div>
 {% endif %}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+    {{ form_start(form, {'attr': {'class': 'form-container'}}) }}
+        {{ form_widget(form, {'attr': {'class': 'form-input'}}) }}
         <button type="submit">Créer</button>
     {{ form_end(form) }}
 {% endblock %}
