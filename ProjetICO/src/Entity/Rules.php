@@ -17,6 +17,10 @@ class Rules
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
+    #[ORM\ManyToOne(inversedBy: 'rules')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Packs $pack_id = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -30,6 +34,18 @@ class Rules
     public function setContent(string $content): static
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getPackId(): ?Packs
+    {
+        return $this->pack_id;
+    }
+
+    public function setPackId(?Packs $pack_id): static
+    {
+        $this->pack_id = $pack_id;
 
         return $this;
     }
