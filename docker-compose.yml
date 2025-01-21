@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+    container_name: symfony_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ProjetICO:/var/www/symfony
+    environment:
+      - APP_ENV=dev
+      - APP_DEBUG=1
+      - APP_SECRET=91a941689e82c11fa04a5d0296b63f1b
+
+  db:
+    image: mariadb:latest
+    container_name: symfony_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: symfony
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: symfony
+    ports:
+      - "3307:3306"
