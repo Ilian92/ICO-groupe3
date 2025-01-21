@@ -1,0 +1,47 @@
+.header {
+    background-color: var(--beige);
+    background-image: url(../images/carte.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 0;
+    mask-image: linear-gradient(to bottom, black 400px, rgba(0, 0, 0, 0));
+    mask-repeat: no-repeat;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 0 100px;
+}
+
+.header-content-text .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.ico .img-cards {
+    display: flex;
+}
+
+.event-news-container {
+    padding: 100px 0;
+}
+
+.event-news-container .event-news {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    max-width: 80%;
+    margin: auto;
+}
+
+.download .grid-download {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

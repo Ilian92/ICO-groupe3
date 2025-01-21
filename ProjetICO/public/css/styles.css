@@ -1,24 +1,133 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+:root {
+    --beige: #FCD3A1;
+    --bleu-royal: #3B60BC;
+    --rouge-corail: #EF4B4B;
+    --violet-amethyste: #7F3CBA;
+    --vert-pomme: #46CC4F;
+    --jaune-moutarde: #FBC434;
 }
 
-nav ul {
+* {
+    transition: all 0.5s;
+}
+
+body {
+    background-color: var(--beige);
+    margin: 0;
+}
+
+h1 {
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 600;
+}
+
+p,
+nav.menu ul li a {
+    font-family: "Filson Pro";
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+.btn-ico {
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+
+.btn-ico.btn-ico-beige {
+    background-color: var(--beige);
+    color: var(--bleu-royal);
+    border: 1px solid var(--beige);
+}
+
+.btn-ico.btn-ico-beige:hover {
+    background-color: transparent;
+    color: var(--beige);
+    border: 1px solid var(--beige);
+}
+
+.btn-ico.btn-ico-rouge {
+    background-color: var(--rouge-corail);
+    color: var(--beige);
+    border: 1px solid var(--rouge-corail);
+}
+
+.btn-ico.btn-ico-rouge:hover {
+    background-color: transparent;
+    color: var(--beige);
+    border: 1px solid var(--rouge-corail);
+}
+
+.text-center {
+    text-align: center;
+}
+
+nav.menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav.menu ul {
     list-style-type: none;
-    padding: 0;
+    background-color: var(--bleu-royal);
+    border-radius: 10px;
+    width: 940px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: fixed;
+    z-index: 15;
+    margin-top: 20px;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 10px;
+}
+
+nav.menu ul div.inner-menu {
+    display: flex;
+    gap: 50px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #3498db;
+    color: var(--beige);
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+img.icon-user {
+    height: 30px;
+}
+
+img.icon-logo {
+    height: 80px;
+}
+
+footer {
+    padding: 100px 0;
+    background-color: var(--bleu-royal);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+footer .footer-inner {
+    display: flex;
+    gap: 30px;
+}
+
+footer .menu-footer ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }

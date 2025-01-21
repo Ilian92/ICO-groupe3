@@ -8,6 +8,14 @@ home:
   path: /
   controller: App\Controller\HomeController::index
 
+news:
+  path: /news
+  controller: App\Controller\HomeController::news
+
+events:
+  path: /events
+  controller: App\Controller\HomeController::events
+
 rules:
   path: /regles
   controller: App\Controller\RulesController::index
@@ -15,3 +23,15 @@ rules:
 register:
   path: /register
   controller: App\Controller\RegisterController::index
+
+user_account:
+  path: /compte
+  controller: App\Controller\UserAccountController::index
+
+cart:
+  path: /panier
+  controller: App\Controller\UserAccountController::cart
+
+order_history:
+  path: /historique
+  controller: App\Controller\UserAccountController::orderHistory
