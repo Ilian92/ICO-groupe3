@@ -29,7 +29,7 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
-        $defaultRole = $entityManager->getRepository(Users::class)->find("ROLE_USER");
+        $defaultRole = $entityManager->getRepository(UserRole::class)->find("ROLE_USER");
         if (!$defaultRole) {
             throw new \Exception('Default role not found.');
         }
