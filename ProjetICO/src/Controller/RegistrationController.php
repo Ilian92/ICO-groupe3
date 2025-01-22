@@ -29,11 +29,11 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
-        $defaultRole = $entityManager->getRepository(UserRole::class)->find(1);
+        $defaultRole = $entityManager->getRepository(UserRole::class)->find("ROLE_USER");
         if (!$defaultRole) {
             throw new \Exception('Default role not found.');
         }
-        $user->setRoleId($defaultRole);
+        $user->setRoles($defaultRole);
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var string $plainPassword */

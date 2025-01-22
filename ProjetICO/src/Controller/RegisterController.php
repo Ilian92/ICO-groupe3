@@ -33,7 +33,7 @@ class RegisterController extends AbstractController
         if (!$defaultRole) {
             throw new \Exception('Default role not found.');
         }
-        $user->setRoleId($defaultRole);
+        $user->setRoles($defaultRole);
 
         $form = $this->formFactory->create(RegisterType::class, $user);
 
