@@ -16,13 +16,12 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
-use App\Entity\UserRole;
 
 class RegistrationController extends AbstractController
 {
     public function __construct(private EmailVerifier $emailVerifier) {}
 
-    #[Route('/registration', name: 'app_register')]
+    #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
         $user = new Users();
@@ -44,7 +43,7 @@ class RegistrationController extends AbstractController
                 'app_verify_email',
                 $user,
                 (new TemplatedEmail())
-                    ->from(new Address('onboarding@resend.dev', 'Auth ICO Mail Bot'))
+                    ->from(new Address('mailbox@ilianigoudjil.me', 'Vérification ICO Mail'))
                     ->to((string) $user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
@@ -52,7 +51,9 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $security->login($user, 'app_login', 'main');
+            // return $security->login($user);
+
+            return $this->render('registration/attente_confirmation.html.twig');
         }
 
         return $this->render('registration/register.html.twig', [
@@ -61,7 +62,7 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/verify/email', name: 'app_verify_email')]
-    public function verifyUserEmail(Request $request, UsersRepository $usersRepository): Response
+    public function verifyUserEmail(Request $request, UsersRepository $usersRepository, Security $security): Response
     {
         $id = $request->query->get('id');
 
@@ -87,6 +88,6 @@ class RegistrationController extends AbstractController
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('app_register');
+        return $security->login($user);
     }
 }

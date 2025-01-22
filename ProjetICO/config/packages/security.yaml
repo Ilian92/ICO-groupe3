@@ -14,15 +14,18 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            pattern: ^/
             lazy: true
             provider: app_user_provider
             form_login:
                 login_path: app_login
                 check_path: app_login
+                default_target_path: home
                 enable_csrf: true
             logout:
-                path: /logout
-                target: /
+                path: app_logout
+                # where to redirect after logout
+                # target: app_home
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
