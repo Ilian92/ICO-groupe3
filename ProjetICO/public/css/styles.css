@@ -1,38 +1,46 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+	color: #333;
 }
 
 nav ul {
-    list-style-type: none;
-    padding: 0;
+	list-style-type: none;
+	padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 10px;
+	display: inline;
+	margin-right: 10px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #3498db;
+	text-decoration: none;
+	color: #3498db;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .packs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2em;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 2em;
 }
 
-.packs-item{
-    padding: 1em;
+.packs-item {
+	padding: 1em;
 }
 
-.packs-item img{
-    width: 100%;;
+.packs-item a {
+	text-decoration: none;
+	color: black;
+}
+
+.packs-item img {
+	width: 100%;
+	aspect-ratio: 1/1;
+	height: auto;
+	object-fit: cover;
 }

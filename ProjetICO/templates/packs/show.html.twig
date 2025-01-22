@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du pack : {{ pack.name }}{% endblock %}
+
+{% block body %}
+<h1>{{ pack.name }}</h1>
+<article>
+<img src="../{{ pack.image }}" alt="{{ pack.name }}" />
+<p>{{ pack.description }}</p>
+<p>{{ pack.price }} €</p>
+</article>
+{% endblock %}
