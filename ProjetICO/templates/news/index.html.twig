@@ -13,15 +13,14 @@
                 <h2>{{ item.title }}</h2>
                 <p>{{ item.content|raw }}</p>
                 <img src="{{ item.image }}" alt="{{ item.title }}" />
-                
                 <p>Publié le : {{ item.CreatedAt|date('d/m/Y H:i') }}</p>
                 
                 {% if item.updatedAt is not null %}
                     <p>Dernière mise à jour : {{ item.updatedAt|date('d/m/Y H:i') }}</p>
                 {% endif %}
-                
-                <!-- Obtenir le statut --> 
-                <p>{{ item.StatusId.name }}</p>
+
+                <!-- Obtenir le statut 
+                <p>{{ item.StatusId.name }}</p> --> 
 
             </article>
         {% endfor %}

@@ -19,3 +19,7 @@ register:
 news:
   path: /news
   controller: App\Controller\NewsController::index
+
+packs:
+  path: /packs
+  controller: App\Controller\PacksController::index

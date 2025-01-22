@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Packs{% endblock %}
+
+{% block body %}
+<h1>Packs</h1>
+{% if packs is empty %}
+    <p>Aucun article n'est à vendre.</p>
+{% else %}
+    <div class="packs">
+        {% for item in packs %}
+            <article class="packs-item">
+                <h2>{{ item.name }}</h2>
+                <img src="{{ item.image }}" alt="{{ item.name }}" />
+                <p>{{ item.description }}</p>
+                <p>{{ item.price }} €</p>
+                <!-- <p>Publié le : {{ item.CreatedAt|date('d/m/Y H:i') }}</p> -->
+            </article>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}

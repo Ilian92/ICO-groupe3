@@ -22,3 +22,17 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
 }
+
+.packs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+}
+
+.packs-item{
+    padding: 1em;
+}
+
+.packs-item img{
+    width: 100%;;
+}
