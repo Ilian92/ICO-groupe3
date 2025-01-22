@@ -29,7 +29,7 @@ class RegisterController extends AbstractController
     {
         $user = new Users();
 
-        $defaultRole = $entityManager->getRepository(UserRole::class)->find(1);
+        $defaultRole = $entityManager->getRepository(Users::class)->find("ROLE_USER");
         if (!$defaultRole) {
             throw new \Exception('Default role not found.');
         }
