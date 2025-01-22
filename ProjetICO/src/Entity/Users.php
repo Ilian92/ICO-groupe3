@@ -156,11 +156,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roleId = $this->role_id;
         // guarantee every user at least has client
-        if ($roleId == 1) {
-            $role[] = "client";
-        } else {
-            $role[] = "admin";
-        }
+        $role = ['client'];
 
         return array_unique($role);
     }
