@@ -8,6 +8,10 @@ home:
   path: /
   controller: App\Controller\HomeController::index
 
+events:
+  path: /events
+  controller: App\Controller\HomeController::events
+
 rules:
   path: /regles
   controller: App\Controller\RulesController::index
@@ -28,6 +32,7 @@ product_show:
   path: /packs/{id}
   controller: App\Controller\PacksController::show
 
+
 show_news:
   path: /news/{id}
   controller: App\Controller\NewsController::show
@@ -35,3 +40,16 @@ show_news:
 event_show:
   path: /events/{id}
   controller: App\Controller\NewsController::show
+
+user_account:
+  path: /compte
+  controller: App\Controller\UserAccountController::index
+
+cart:
+  path: /panier
+  controller: App\Controller\UserAccountController::cart
+
+order_history:
+  path: /historique
+  controller: App\Controller\UserAccountController::orderHistory
+
