@@ -7,5 +7,85 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Règles du jeu</h1>
+    <section class="header container">
+        <div class="header-content">
+            <div class="header-content-text">
+                <h1>Règles du jeu</h1>
+                <h2>Plongez dans l’univers d’ICO ! Découvrez les mécaniques interactives qui garantissent une expérience unique pour tous les joueurs, sans élimination précoce</h2>
+                <a href="" class="btn-ico btn-ico-rouge">Télécharger les règles complètes</a>
+            </div>
+        </div>
+    </section>
+    <section class="game container">
+        <h2>Déroulement d'une Partie</h2>
+        <h3>Mise en place</h3>
+        <p>Description du matériel nécessaire et du placement.</p>
+        <h3>Déroulement</h3>
+        <ol>
+            <li>Étape 1 : Description de la première étape.</li>
+            <li>Étape 2 : Description de la deuxième étape.</li>
+            <li>Étape 3 : Description de la troisième étape.</li>
+        </ol>
+        <h3>Conditions de victoire</h3>
+        <p>Brève explication de comment un joueur ou une équipe peut gagner.</p>
+    </section>
+
+    <section class="characters container">
+        <h2>Les Cartes Personnages</h2>
+        <p>Description générale des rôles et de leur importance dans le jeu.</p>
+        <div class="character-list">
+            <div class="character">
+                <img src="{{ asset('images/cards/marin.png') }}" alt="marin">
+                <p>Nom du personnage : Marin</p>
+                <p>Rôle : Les marins doivent choisir les bons équipages pour sécuriser le trésor et empêcher les pirates de gagner. Ils n'ont pas connaissance des rôles des autres joueurs et doivent se fier aux comportements et aux votes.</p>
+            </div>
+            <div class="character">
+                <img src="{{ asset('images/cards/pirate.png') }}" alt="pirates">
+                <p>Nom du personnage : Pirates</p>
+                <p>Rôle : Les pirates doivent semer la confusion et jouer des cartes Poison pour gagner des points. Ils connaissent les autres pirates, mais doivent se cacher parmi les marins et la sirène.</p>
+            </div>
+            <div class="character">
+                <img src="{{ asset('images/cards/sirene.png') }}" alt="sirene">
+                <p>Nom du personnage : Sirene</p>
+                <p>Rôle : Les pirates doivent semer la confusion et jouer des cartes Poison pour gagner des points. Ils connaissent les autres pirates, mais doivent se cacher parmi les marins et la sirène.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="actions container">
+        <h2>Les Cartes Actions</h2>
+        <p>Explication du fonctionnement des cartes d’action.</p>
+        <div class="action-list">
+            <div class="action">
+                <img src="{{ asset('images/cards/sirene.png') }}" alt="sirene">
+                <p>Nom du personnage : Sirene</p>
+                <p>Rôle : Les pirates doivent semer la confusion et jouer des cartes Poison pour gagner des points. Ils connaissent les autres pirates, mais doivent se cacher parmi les marins et la sirène.</p>
+            </div>
+            <div class="action">
+                <img src="{{ asset('images/cards/sirene.png') }}" alt="sirene">
+                <p>Nom du personnage : Sirene</p>
+                <p>Rôle : Les pirates doivent semer la confusion et jouer des cartes Poison pour gagner des points. Ils connaissent les autres pirates, mais doivent se cacher parmi les marins et la sirène.</p>
+            </div>
+            <div class="action">
+                <img src="{{ asset('images/cards/sirene.png') }}" alt="sirene">
+                <p>Nom du personnage : Sirene</p>
+                <p>Rôle : Les pirates doivent semer la confusion et jouer des cartes Poison pour gagner des points. Ils connaissent les autres pirates, mais doivent se cacher parmi les marins et la sirène.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="downloads container">
+        <h2>Téléchargez les Ressources du Jeu</h2>
+        <div class="download-list">
+            <div class="download-item">
+                <p><a href="{{ asset('pdf/rules.pdf') }}" download>Télécharger les règles complètes</a></p>
+            </div>
+            <div class="download-item">
+                <p><a href="{{ asset('pdf/characters.pdf') }}" download>Télécharger les cartes personnages</a></p>
+            </div>
+            <div class="download-item">
+                <p><a href="{{ asset('pdf/actions.pdf') }}" download>Télécharger les cartes actions</a></p>
+            </div>
+        </div>
+    </section>
 {% endblock %}

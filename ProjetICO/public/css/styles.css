@@ -30,17 +30,28 @@ h2 {
     font-weight: 600;
 }
 
+h3 {
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
 p,
-nav.menu ul li a {
+nav.menu ul li a,
+.btn-ico {
     font-family: "Filson Pro";
     font-size: 16px;
     line-height: 16px;
     font-weight: 400;
+    text-decoration: none;
 }
 
 .btn-ico {
     padding: 12px 20px;
     border-radius: 10px;
+    display: flex;
+    width: max-content;
 }
 
 .btn-ico.btn-ico-beige {
@@ -77,6 +88,10 @@ nav.menu {
     justify-content: center;
 }
 
+ol {
+    list-style: none;
+}
+
 nav.menu ul {
     list-style-type: none;
     background-color: var(--bleu-royal);
@@ -99,6 +114,7 @@ nav ul li {
 nav.menu ul div.inner-menu {
     display: flex;
     gap: 50px;
+    align-items: center;
 }
 
 nav ul li a {
@@ -130,4 +146,9 @@ footer .menu-footer ul {
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.container {
+    max-width: 1440px;
+    margin: auto;
 }

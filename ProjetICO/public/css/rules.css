@@ -1,0 +1,70 @@
+.header {
+    background-color: var(--beige);
+    background-image: url(../images/bg/bg-rules.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
+    padding: 200px 0;
+}
+
+.header-content-text {
+    max-width: 50%;
+}
+
+.header-content-text h2 {
+    margin: 20px 0;
+}
+
+.game, 
+.characters, 
+.actions, 
+.downloads {
+    margin-top: 40px;
+}
+
+.game h2, 
+.characters h2, 
+.actions h2, 
+.downloads h2 {
+    margin-bottom: 20px;
+}
+
+.game h3, 
+.characters h3, 
+.actions h3, 
+.downloads h3 {
+    margin-top: 20px;
+}
+
+.game ol {
+    margin-left: 20px;
+}
+
+.character-list, 
+.action-list, 
+.download-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.character, 
+.action, 
+.download-item {
+    flex: 1 1 calc(25% - 20px);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.character img, 
+.action img, 
+.download-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.download-item p {
+    margin-top: 10px;
+}

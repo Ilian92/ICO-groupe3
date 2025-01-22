@@ -1,6 +1,6 @@
 .header {
     background-color: var(--beige);
-    background-image: url(../images/carte.svg);
+    background-image: url(../images/bg/carte.svg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 200px 0;
@@ -18,11 +18,6 @@
 .header-content-text .info {
     display: flex;
     justify-content: space-between;
-}
-
-.container {
-    max-width: 1440px;
-    margin: auto;
 }
 
 .ico .img-cards {
