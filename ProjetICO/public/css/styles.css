@@ -213,6 +213,30 @@ footer .menu-footer ul {
 	object-fit: cover;
 }
 
+/*-------------- Cards --------------*/
+
+.cards-list{
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}
+
+.card-item{
+	width: 300px;
+	height: auto;
+	background-color: white;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+.card-infos > *{
+	padding: 0.2em 0;
+}
+
+.card-item h3{
+text-align: center;
+}
+
 @media screen and (max-width: 768px) {
 	.pack-item {
 		grid-template-columns: repeat(1, 1fr);

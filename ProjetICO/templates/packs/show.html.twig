@@ -4,16 +4,31 @@
 
 {% block body %}
 <article class="pack-item">
-<img src="../{{ pack.image }}" alt="{{ pack.name }}" />
-<div class="pack-infos">
-<h1>{{ pack.name }}</h1>
-<p>{{ pack.description }}</p>
-<p>{{ pack.price }} €</p>
-<div>
+    <img src="../{{ pack.image }}" alt="{{ pack.name }}" />
+    <div class="pack-infos">
+        <h1>{{ pack.name }}</h1>
+        <p>{{ pack.description }}</p>
+        <p>{{ pack.price }} €</p>
+    </div>
 </article>
+
+<h2>Cartes dans ce pack</h2>
+<div class="cards-list">
+    {% for card in cards %}
+        <article class="card-item">
+            <img src="../{{ card.image }}" alt="{{ card.name }}" />
+            <div class="card-infos">
+                <h3>
+                    <a href="{{ path('card_show', { id: card.id }) }}">
+                        {{ card.name }}
+                    </a>
+                </h3>
+                <p>{{ card.description }}</p>
+                <p><strong>Type :</strong> {{ card.typeId.name }}</p>
+            </div>
+        </article>
+    {% else %}
+        <p>Aucune carte dans ce pack.</p>
+    {% endfor %}
+</div>
 {% endblock %}
-
-
-
-
-

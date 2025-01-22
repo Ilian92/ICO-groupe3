@@ -21,8 +21,7 @@ class PacksController extends AbstractController
         ]);
     }
 
-    // Nouvelle méthode pour afficher un pack spécifique
-    #[Route('/packs/{id}', name: 'product_show')]
+    #[Route('/packs/{id}', name: 'pack_show')]
     public function show(int $id, PacksRepository $packsRepository): Response
     {
         // Récupérer le pack spécifique par son ID
@@ -33,9 +32,10 @@ class PacksController extends AbstractController
             throw $this->createNotFoundException('Le pack demandé n\'existe pas.');
         }
 
-        // Retourner la vue Twig avec les détails du pack
+        // Retourner la vue Twig avec les détails du pack et les cartes associées
         return $this->render('packs/show.html.twig', [
             'pack' => $pack,
+            'cards' => $pack->getCards(), // Récupérer les cartes associées au pack
         ]);
     }
 }
