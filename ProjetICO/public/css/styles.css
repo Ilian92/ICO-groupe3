@@ -227,8 +227,8 @@ footer .menu-footer ul {
 }
 
 .card-detail{
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 30% 70%;
 	padding: 2em;
 	gap: 2em;
 	width: 90%;
@@ -236,7 +236,10 @@ footer .menu-footer ul {
 }
 
 .card-detail img{
-	width: 50%;
+	width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 
 .card-infos > *{
