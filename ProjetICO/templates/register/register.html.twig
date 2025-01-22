@@ -1,16 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-<form action="/register" method="POST">
-    <h1>Inscription !</h1>
-    <div>
-        <input type="text" minlength="1" name="username" placeholder="Pseudonyme" />
-        <input type="email" minlength="1" name="email" placeholder="Email" />
-        <input type="text" minlength="1" name="nom" placeholder="Nom" />
-        <input type="text" minlength="1" name="prenom" placeholder="Prénom" />
-        <input type="password" placeholder="Mot de passe" minlength="8" name="password" />
-        <input type="submit" value="Confirmer">
-    </div>
-</form>
+{% block title %}Créer un utilisateur{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Créer un utilisateur</h1>
+
+{% if errorMessage is not empty %}
+    <div class="form-errors">
+        <ul>
+            {% for error in errorMessage %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+    {{ form_start(form, {'attr': {'class': 'form-container'}}) }}
+        {{ form_widget(form, {'attr': {'class': 'form-input'}}) }}
+        <button type="submit">Créer</button>
+    {{ form_end(form) }}
 {% endblock %}
