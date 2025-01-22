@@ -68,3 +68,13 @@
 .download-item p {
     margin-top: 10px;
 }
+
+.character-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+
+section {
+    padding: 100px 0;
+}
