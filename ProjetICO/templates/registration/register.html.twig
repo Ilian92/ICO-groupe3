@@ -26,9 +26,13 @@
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
 
+{# premier bouton de logout, celui-là est nul #}
  <form action="/logout" method="post">
     <button type="submit">Log Out</button>
 </form>
+
+{# deuxième bouton de logout, celui-là est mieux, on utilise pas l'autre #}
+<a href="{{ path('app_logout') }}">Log Out</a>
 
 {% endblock %}
 
