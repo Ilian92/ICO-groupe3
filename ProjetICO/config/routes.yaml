@@ -15,3 +15,7 @@ rules:
 register:
   path: /register
   controller: App\Controller\RegisterController::index
+
+news:
+  path: /news
+  controller: App\Controller\NewsController::index
