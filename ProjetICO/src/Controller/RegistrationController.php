@@ -29,12 +29,6 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
-        $defaultRole = $entityManager->getRepository(Users::class)->find("ROLE_USER");
-        if (!$defaultRole) {
-            throw new \Exception('Default role not found.');
-        }
-        $user->setRoles($defaultRole);
-
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var string $plainPassword */
             $plainPassword = $user->getPassword();
@@ -50,7 +44,7 @@ class RegistrationController extends AbstractController
                 'app_verify_email',
                 $user,
                 (new TemplatedEmail())
-                    ->from(new Address('icosociete1029@gmail.com', 'Auth ICO Mail Bot'))
+                    ->from(new Address('onboarding@resend.dev', 'Auth ICO Mail Bot'))
                     ->to((string) $user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
@@ -58,7 +52,7 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $security->login($user, 'form_login', 'main');
+            return $security->login($user, 'app_login', 'main');
         }
 
         return $this->render('registration/register.html.twig', [
