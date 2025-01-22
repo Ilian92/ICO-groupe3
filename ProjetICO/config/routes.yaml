@@ -24,7 +24,14 @@ packs:
   path: /packs
   controller: App\Controller\PacksController::index
 
-# Mise à jour de la route product_show pour inclure un paramètre {id}
 product_show:
   path: /packs/{id}
   controller: App\Controller\PacksController::show
+
+show_news:
+  path: /news/{id}
+  controller: App\Controller\NewsController::show
+
+event_show:
+  path: /events/{id}
+  controller: App\Controller\NewsController::show

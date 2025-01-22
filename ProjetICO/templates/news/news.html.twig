@@ -4,26 +4,30 @@
 
     {% block body %}
     <h1>Actualités</h1>
+
     {% if news is empty %}
         <p>Aucune actualité pour le moment.</p>
     {% else %}
         <div class="news-container">
             {% for item in news %}
                 <article class="news-item">
-                    <h2>{{ item.title }}</h2>
-                    <p>{{ item.content|raw }}</p>
-                    <img src="{{ item.image }}" alt="{{ item.title }}" />
-                    <p>Publié le : {{ item.CreatedAt|date('d/m/Y H:i') }}</p>
-                    
+                <a href="{{ path('news_show', {'id': item.id}) }}"><img src="{{ item.image }}" alt="{{ item.title }}" /></a>
+                <div>
+                    <a href="{{ path('news_show', {'id': item.id}) }}"><h2>{{ item.title }}</h2></a>
+                    <p>Publié le {{ item.CreatedAt|date('d/m/Y') }} à {{ item.CreatedAt|date('H:i') }}</p>
                     {% if item.updatedAt is not null %}
                         <p>Dernière mise à jour : {{ item.updatedAt|date('d/m/Y H:i') }}</p>
                     {% endif %}
-
+                    <p>{{ item.content|length > 100 ? item.content|slice(0, 100) ~ '...' : item.content  }}</p>
                     <!-- Obtenir le statut 
-                    <p>{{ item.StatusId.name }}</p> --> 
+                    <p>{{ item.StatusId.name }}</p> -->
+                </div>
+                     
 
                 </article>
             {% endfor %}
         </div>
     {% endif %}
     {% endblock %}
+
+

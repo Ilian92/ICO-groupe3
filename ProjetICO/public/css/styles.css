@@ -37,7 +37,9 @@ nav ul li a:hover {
 	padding: 1em;
 }
 
-.packs-item a {
+.packs-item a,
+.news-item a,
+.events-item a {
 	text-decoration: none;
 	color: black;
 }
@@ -58,12 +60,30 @@ nav ul li a:hover {
 	padding: 5em;
 }
 
+/*-------------- News Items --------------*/
+
+.news-item, .events-item {
+	display: flex;
+	gap: 2em;
+}
+
+.news-item > div, .events-item > div {
+	width: 100%;
+}
+
+.news-item img, .events-item img {
+	height: 200px;
+	width: auto;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+
 @media screen and (max-width: 768px) {
 	.pack-item {
 		grid-template-columns: repeat(1, 1fr);
 	}
 	.pack-item img {
-        width: 100%;
+		width: 100%;
 		max-width: 500px;
 		margin: auto;
 	}

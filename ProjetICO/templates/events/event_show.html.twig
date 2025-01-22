@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du pack : {{ singleEvent.title }}{% endblock %}
+
+{% block body %}
+<h1>{{ singleEvent.title }}</h1>
+<p>Publié le {{ singleEvent.createdAt|date('d/m/Y') }} à {{ singleEvent.createdAt|date('H:i') }}</p>
+<img src="{{ singleEvent.image }}" alt="{{ singleEvent.title }}" />
+<p>{{ singleEvent.content }}</p>
+
+{% endblock %}

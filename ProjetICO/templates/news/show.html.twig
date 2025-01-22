@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du pack : {{ singleNews.title }}{% endblock %}
+
+{% block body %}
+<h1>{{ singleNews.title }}</h1>
+<p>Publié le {{ singleNews.createdAt|date('d/m/Y') }} à {{ singleNews.createdAt|date('H:i') }}</p>
+<img src="{{ singleNews.image }}" alt="{{ singleNews.title }}" />
+<p>{{ singleNews.content }}</p>
+
+{% endblock %}
