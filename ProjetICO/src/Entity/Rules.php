@@ -21,6 +21,12 @@ class Rules
     #[ORM\JoinColumn(nullable: false)]
     private ?Packs $pack_id = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $section = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $title = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -46,6 +52,30 @@ class Rules
     public function setPackId(?Packs $pack_id): static
     {
         $this->pack_id = $pack_id;
+
+        return $this;   
+    }
+
+    public function getSection(): ?string
+    {
+        return $this->section;
+    }
+
+    public function setSection(string $section): static
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): static
+    {
+        $this->title = $title;
 
         return $this;
     }

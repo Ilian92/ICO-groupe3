@@ -5,18 +5,65 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/rules.css') }}">
 {% endblock %}
-
+    
 {% block body %}
     <section class="header container">
         <div class="header-content">
             <div class="header-content-text">
                 <h1>Règles du jeu</h1>
-                <h2>Plongez dans l’univers d’ICO ! Découvrez les mécaniques interactives qui garantissent une expérience unique pour tous les joueurs, sans élimination précoce</h2>
+                <p>Quelque part en pleine Mer, un groupe de Marins est chargé de transporter un Trésor, mais des pirates ont peut-être infiltré leur équipage afin de le voler.</p>
+                <p>Entre tempête, mal de mer, sirènes, trahisons et autres dangers, le trésor arrivera-t-il à bon port ?</p>
                 <a href="" class="btn-ico btn-ico-rouge">Télécharger les règles complètes</a>
             </div>
         </div>
     </section>
-    <section class="game container">
+    
+    <section id="sommaire" class="container">
+        <h2>Sommaire</h2>
+        <ol type="I">
+            <li><a href="#but">But du jeu</a></li>
+            <li><a href="#materiel">Matériel</a></li>
+            <li><a href="#cartes">Les Cartes</a></li>
+            <li><a href="#distribution">Distribution des cartes</a></li>
+            <li><a href="#partie">Déroulement d’une partie</a></li>
+            <ol>
+                <li><a href="#place">Mise en place</a></li>
+                <li><a href="#voyage">Premier Voyage</a></li>
+                <li><a href="#suite">Suite de la partie</a></li>
+                <li><a href="#conditions">Conditions de Victoire</a></li>
+            </ol>
+        </ol>
+    </section>
+
+
+    <section id="but" class="container">
+        {% for rule in rules %}
+            {% if rule.section == 'but' %}
+                <h3>{{ rule.title }}</h3>
+                <p>{{ rule.content }}</p>
+            {% endif %}
+        {% endfor %}
+    </section>
+
+
+    <section id="materiel" class="container">
+        {# <h2 id="Materiel">Matériel ({{ card.total_count }} Cartes dont deux cartes «règle du jeu»)</h2> #}
+        <h3>tableau des cartes et quantité</h3>
+    </section>
+    <section id="cartes" class="container">
+        {# {% for card in cards %}
+            <div class="character">
+                <img src="{{ asset(card.image) }}" alt="{{ card.name }}">
+                <p><strong>Nom du personnage</strong> : <em>{{ card.name }}</em></p>
+                <p>Rôle : {{ card.description }}</p>
+            </div>
+        {% endfor %} #}
+    </section>
+
+
+
+
+    {# <section class="game container">
         <h2>Déroulement d'une Partie</h2>
         <h3>Mise en place</h3>
         <p>Description du matériel nécessaire et du placement.</p>
@@ -87,5 +134,5 @@
                 <p><a href="{{ asset('pdf/actions.pdf') }}" download>Télécharger les cartes actions</a></p>
             </div>
         </div>
-    </section>
+    </section> #}
 {% endblock %}

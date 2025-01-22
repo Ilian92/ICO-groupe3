@@ -21,6 +21,7 @@ h1 {
     font-size: 32px;
     line-height: 32px;
     font-weight: 700;
+    margin-bottom: 25px;
 }
 
 h2 {
@@ -28,6 +29,7 @@ h2 {
     font-size: 25px;
     line-height: 25px;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
 h3 {
@@ -45,6 +47,14 @@ nav.menu ul li a,
     line-height: 16px;
     font-weight: 400;
     text-decoration: none;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+p:last-child {
+    margin-bottom: 0px;
 }
 
 .btn-ico {
@@ -97,8 +107,7 @@ ol {
 nav.menu ul {
     list-style-type: none;
     background-color: var(--bleu-royal);
-    border-radius: 10px;
-    width: 940px;
+    width: 100%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -106,7 +115,10 @@ nav.menu ul {
     padding: 0 40px;
     position: fixed;
     z-index: 15;
-    margin-top: 20px;
+}
+
+.inner-body {
+    margin-top: 80px;
 }
 
 nav ul {
@@ -128,6 +140,30 @@ nav ul li a {
     text-decoration: none;
     color: var(--beige);
 }
+
+
+/* DROPDOWN */
+.dropdown .dropdown-menu {
+    opacity: 0;
+}
+
+.dropdown .dropdown-menu {
+    padding: 20px;
+    margin-top: 35px;
+    max-width: 200px;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+}
+
+.dropdown .dropdown-menu .dropdown-menu-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
 
 img.icon-user {
     height: 30px;
