@@ -46,9 +46,8 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\ManyToOne(inversedBy: 'users')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?UserRole $role_id = null;
+    #[ORM\Column]
+    private array $roles = [];
 
     /**
      * @var Collection<int, Orders>
@@ -140,25 +139,13 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getRoleId(): ?UserRole
-    {
-        return $this->role_id;
-    }
-
-    public function setRoleId(?UserRole $role_id): static
-    {
-        $this->role_id = $role_id;
-
-        return $this;
-    }
-
     public function getRoles(): array
     {
-        $roleId = $this->role_id;
-        // guarantee every user at least has client
-        $role = ['client'];
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
 
-        return array_unique($role);
+        return array_unique($roles);
     }
 
     /**
