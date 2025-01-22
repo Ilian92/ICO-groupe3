@@ -298,6 +298,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
   `role_id_id` int NOT NULL,
+  `is_verified` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_1483A5E988987678` (`role_id_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
