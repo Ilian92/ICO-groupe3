@@ -12,14 +12,22 @@ class NewsController extends AbstractController
     #[Route('/news', name: 'news')]
     public function index(NewsRepository $newsRepository): Response
     {
-        // Récupérer toutes les actualités depuis le repository
-        $news = $newsRepository->findAll();
+        // Récupérer uniquement les actualités ayant le statut "news"
+        $news = $newsRepository->findByStatus('news');
 
-        // Retourner la vue Twig avec les actualités
-        return $this->render('news/index.html.twig', [
+        return $this->render('news/news.html.twig', [
             'news' => $news,
         ]);
-        
-exit;
+    }
+
+    #[Route('/events', name: 'events')]
+    public function events(NewsRepository $newsRepository): Response
+    {
+        // Récupérer uniquement les événements ayant le statut "event"
+        $events = $newsRepository->findByStatus('event');
+
+        return $this->render('news/events.html.twig', [
+            'events' => $events,
+        ]);
     }
 }

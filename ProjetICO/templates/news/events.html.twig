@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Événements{% endblock %}
+
+{% block body %}
+    <h1>Événements</h1>
+
+    {% if events is empty %}
+        <p>Aucun événement disponible pour le moment.</p>
+    {% else %}
+        <ul>
+            {% for event in events %}
+                <li>
+                    <h2>{{ event.title }}</h2>
+                    <p>{{ event.content }}</p>
+                    <img src="{{ event.image }}" alt="{{ event.title }}">
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

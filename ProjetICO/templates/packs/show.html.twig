@@ -3,10 +3,12 @@
 {% block title %}Détails du pack : {{ pack.name }}{% endblock %}
 
 {% block body %}
-<h1>{{ pack.name }}</h1>
-<article>
+<article class="pack-item">
 <img src="../{{ pack.image }}" alt="{{ pack.name }}" />
+<div class="pack-infos">
+<h1>{{ pack.name }}</h1>
 <p>{{ pack.description }}</p>
 <p>{{ pack.price }} €</p>
+<div>
 </article>
 {% endblock %}

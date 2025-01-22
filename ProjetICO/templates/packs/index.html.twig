@@ -10,7 +10,6 @@
     <div class="packs">
         {% for item in packs %}
             <article class="packs-item">
-                <!-- Le lien est modifié pour diriger vers la page du produit spécifique en fonction de son ID -->
                 <h2><a href="{{ path('product_show', {'id': item.id}) }}">{{ item.name }}</a></h2>
                 <a href="{{ path('product_show', {'id': item.id}) }}"><img src="{{ item.image }}" alt="{{ item.name }}" /></a>
                 <a href="{{ path('product_show', {'id': item.id}) }}"><p>{{ item.description }}</p></a>
