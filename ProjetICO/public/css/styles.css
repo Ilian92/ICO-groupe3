@@ -92,6 +92,8 @@ ol {
     list-style: none;
 }
 
+/*-------------- nav --------------*/
+
 nav.menu ul {
     list-style-type: none;
     background-color: var(--bleu-royal);
@@ -105,6 +107,11 @@ nav.menu ul {
     position: fixed;
     z-index: 15;
     margin-top: 20px;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
 }
 
 nav ul li {
@@ -151,4 +158,48 @@ footer .menu-footer ul {
 .container {
     max-width: 1440px;
     margin: auto;
+}
+
+/*-------------- Packs --------------*/
+
+.packs {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 2em;
+}
+
+.packs-item {
+	padding: 1em;
+}
+
+.packs-item a {
+	text-decoration: none;
+	color: black;
+}
+
+.packs-item img {
+	width: 100%;
+	aspect-ratio: 1/1;
+	height: auto;
+	object-fit: cover;
+}
+
+/*-------------- Individual Pack --------------*/
+
+.pack-item {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 5em;
+	padding: 5em;
+}
+
+@media screen and (max-width: 768px) {
+	.pack-item {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.pack-item img {
+        width: 100%;
+		max-width: 500px;
+		margin: auto;
+	}
 }

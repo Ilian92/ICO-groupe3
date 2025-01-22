@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         <link rel="icon" href="{{ asset('images/favicon.svg') }}" />
         <link href="https://db.onlinewebfonts.com/c/92d107809e07d19ef1446daa906f8573?family=Chaloops+W00+Md+Reg" rel="stylesheet" type="text/css"/>
@@ -24,6 +25,9 @@
                 <div class="inner-menu">
                     <li><a href="{{ path('rules') }}">Règles</a></li>
                     <li><a href="{{ path('register') }}">Register</a></li>
+                    <li><a href="{{ path('packs') }}">Packs</a></li>
+                    <li><a href="{{ path('news') }}">News</a></li>
+                    <li><a href="{{ path('events') }}">Events</a></li>
                     <li><a class="btn-ico btn-ico-rouge" href="">Achetez ICO</a></li>
                 </div>
                 <li>
@@ -31,6 +35,9 @@
                         <img src="{{ asset('images/user.svg') }}" alt="icône utilisateur" class="icon-user">
                     </a>
                 </li>
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('rules') }}">Règles</a></li>
+                <li><a href="{{ path('register') }}">Register</a></li>
             </ul>
         </nav>
         <div class="inner-body">

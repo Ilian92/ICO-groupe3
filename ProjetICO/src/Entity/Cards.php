@@ -23,6 +23,14 @@ class Cards
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    #[ORM\ManyToOne(inversedBy: 'cards')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Packs $pack_id = null;
+
+    #[ORM\ManyToOne(inversedBy: 'cards')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?CardType $type_id = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +68,30 @@ class Cards
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getPackId(): ?Packs
+    {
+        return $this->pack_id;
+    }
+
+    public function setPackId(?Packs $pack_id): static
+    {
+        $this->pack_id = $pack_id;
+
+        return $this;
+    }
+
+    public function getTypeId(): ?CardType
+    {
+        return $this->type_id;
+    }
+
+    public function setTypeId(?CardType $type_id): static
+    {
+        $this->type_id = $type_id;
 
         return $this;
     }
