@@ -67,7 +67,7 @@ class RegisterController extends AbstractController
 
                 // Redirection après la création
                 $this->addFlash('success', 'Registration réussi !');
-                return $this->redirectToRoute('login');
+                return $this->redirectToRoute('app_login');
             }
         }
 

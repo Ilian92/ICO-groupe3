@@ -6,11 +6,14 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
-class Users
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -38,6 +41,9 @@ class Users
     private ?string $address = null;
 
     #[ORM\Column]
+    private ?bool $is_verified = false;
+
+    #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
@@ -54,6 +60,7 @@ class Users
     {
         $this->orders = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
+        $this->is_verified = false;
     }
 
     public function getId(): ?int
@@ -145,6 +152,15 @@ class Users
         return $this;
     }
 
+    public function getRoles(): array
+    {
+        $roleId = $this->role_id;
+        // guarantee every user at least has client
+        $role = ['client'];
+
+        return array_unique($role);
+    }
+
     /**
      * @return Collection<int, Orders>
      */
@@ -171,6 +187,37 @@ class Users
                 $order->setUserId(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials(): void
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->email;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->is_verified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->is_verified = $isVerified;
 
         return $this;
     }
