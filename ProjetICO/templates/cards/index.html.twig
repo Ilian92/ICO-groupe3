@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cartes{% endblock %}
+
+{% block body %}
+    <h1>Cartes</h1>
+    {% for card in cards %}
+    <article class="events-item">
+    <img src="{{ card.image }}" alt="{{ card.name }}">
+    <div>
+        <h2>{{ card.name }}</h2>
+        <p>Type : {{ card.typeId.name }}</p>
+        <p>{{ card.description }}</p> {# Correction ici : "card.description" au lieu de "event.description" #}
+    </div> 
+    </article> 
+    {% endfor %}
+
+{% endblock %}

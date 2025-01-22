@@ -6,6 +6,6 @@
 <h1>{{ singleNews.title }}</h1>
 <p>Publié le {{ singleNews.createdAt|date('d/m/Y') }} à {{ singleNews.createdAt|date('H:i') }}</p>
 <img src="{{ singleNews.image }}" alt="{{ singleNews.title }}" />
-<p>{{ singleNews.content }}</p>
+<p>{{ singleNews.content|nl2br }}</p>
 
 {% endblock %}

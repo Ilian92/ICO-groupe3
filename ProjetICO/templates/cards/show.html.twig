@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la carte : {{ card.name }}{% endblock %}
+
+{% block body %}
+<article class="card-detail">
+    <img src="../{{ card.image }}" alt="{{ card.name }}">
+    <div class="card-infos">
+        <h1>{{ card.name }}</h1>
+        <p>{{ card.description }}</p>
+        <p><strong>Type :</strong> {{ card.typeId.name }}</p>
+    </div>
+</article>
+<a href="{{ path('packs_show', { id: pack.id }) }}">Retour au pack : {{ pack.name }}</a>
+{% endblock %}

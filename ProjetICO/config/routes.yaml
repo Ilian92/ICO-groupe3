@@ -10,7 +10,7 @@ home:
 
 events:
   path: /events
-  controller: App\Controller\HomeController::events
+  controller: App\Controller\NewsController::events
 
 rules:
   path: /regles
@@ -32,6 +32,9 @@ product_show:
   path: /packs/{id}
   controller: App\Controller\PacksController::show
 
+cards:
+  path: /cards
+  controller: App\Controller\CardsController::index
 
 show_news:
   path: /news/{id}
