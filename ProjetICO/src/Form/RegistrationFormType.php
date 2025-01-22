@@ -21,6 +21,9 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'label' => 'Email',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => 'exemple@mail.com',
                     'class' => 'form-input',
@@ -28,6 +31,9 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('password', PasswordType::class, [
                 'label' => 'Mot de passe',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => 'Mot de passe',
                     'class' => 'form-input',
@@ -35,6 +41,9 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('first_name', TextType::class, [
                 'label' => 'Prénom',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => 'Jean',
                     'class' => 'form-input',
@@ -42,6 +51,9 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('last_name', TextType::class, [
                 'label' => 'Nom',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => 'Dupont',
                     'class' => 'form-input',
@@ -49,6 +61,9 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('address', TextType::class, [
                 'label' => 'Adresse',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => '1 rue de Paris 75000 Paris',
                     'class' => 'form-input',
