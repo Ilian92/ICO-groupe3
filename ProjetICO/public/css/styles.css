@@ -222,11 +222,21 @@ footer .menu-footer ul {
 }
 
 .card-item{
-	width: 300px;
+	width: 250px;
 	height: auto;
-	background-color: white;
-	border-radius: 1em;
-	padding: 1em;
+}
+
+.card-detail{
+	display: flex;
+	flex-direction: row;
+	padding: 2em;
+	gap: 2em;
+	width: 90%;
+	margin: auto;
+}
+
+.card-detail img{
+	width: 50%;
 }
 
 .card-infos > *{

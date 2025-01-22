@@ -30,9 +30,10 @@ class CardsController extends AbstractController
             throw $this->createNotFoundException('La carte demandée n\'existe pas.');
         }
 
-        // Retourner la vue Twig avec les détails de la carte
+        // Retourner la vue Twig avec les détails de la carte et le pack associé
         return $this->render('cards/show.html.twig', [
             'card' => $card,
+            'pack' => $card->getPackId(),
         ]);
     }
 }

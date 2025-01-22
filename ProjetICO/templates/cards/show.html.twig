@@ -11,6 +11,5 @@
         <p><strong>Type :</strong> {{ card.typeId.name }}</p>
     </div>
 </article>
-
-<a href="{{ path('cards_index') }}">Retour à la liste des cartes</a>
+<a href="{{ path('packs_show', { id: pack.id }) }}">Retour au pack : {{ pack.name }}</a>
 {% endblock %}
