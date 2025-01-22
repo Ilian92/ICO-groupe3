@@ -22,21 +22,37 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Email',
                 'attr' => [
-                    'placeholder' => 'Email',
-                    'class' => 'red',
+                    'placeholder' => 'exemple@mail.com',
+                    'class' => 'form-input',
                 ],
             ])
             ->add('password', PasswordType::class, [
                 'label' => 'Mot de passe',
+                'attr' => [
+                    'placeholder' => 'Mot de passe',
+                    'class' => 'form-input',
+                ],
             ])
             ->add('first_name', TextType::class, [
                 'label' => 'Prénom',
+                'attr' => [
+                    'placeholder' => 'Jean',
+                    'class' => 'form-input',
+                ],
             ])
             ->add('last_name', TextType::class, [
                 'label' => 'Nom',
+                'attr' => [
+                    'placeholder' => 'Dupont',
+                    'class' => 'form-input',
+                ],
             ])
             ->add('address', TextType::class, [
                 'label' => 'Adresse',
+                'attr' => [
+                    'placeholder' => '1 rue de Paris 75000 Paris',
+                    'class' => 'form-input',
+                ],
             ]);
     }
 
@@ -44,6 +60,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Users::class,
+            'attr' => ['class' => 'form-container'],
         ]);
     }
 }
