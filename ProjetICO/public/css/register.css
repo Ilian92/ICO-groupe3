@@ -10,7 +10,7 @@
 }
 
 .register-body {
-    padding-top: 70px;
+    padding-top: 60px;
     padding-bottom: 125px;
     background-image: url(../images/bg/carte.svg);
     background-attachment: fixed;
@@ -21,6 +21,7 @@
 .form-container {
     max-width: 500px;
     margin: 0 auto;
+    margin-top: 40px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 30px;
@@ -47,6 +48,7 @@
 
 .btn-container {
     text-align: center;
+    margin-top: 20px;
 }
 
 .btn {
@@ -56,4 +58,11 @@
     width: 268px;
     height: 43px;
     border-radius: 12px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
 }
