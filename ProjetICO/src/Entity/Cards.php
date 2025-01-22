@@ -31,6 +31,9 @@ class Cards
     #[ORM\JoinColumn(nullable: false)]
     private ?CardType $type_id = null;
 
+    #[ORM\Column]
+    private ?int $quantity = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +95,18 @@ class Cards
     public function setTypeId(?CardType $type_id): static
     {
         $this->type_id = $type_id;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): static
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }
