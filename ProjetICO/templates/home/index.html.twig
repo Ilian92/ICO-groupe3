@@ -2,6 +2,57 @@
 
 {% block title %}Page d'accueil{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
+{% endblock %}
+
 {% block body %}
-    <h1>Bienvenue sur la page d'accueil!</h1>
+    <section class="header">
+        <div class="header-content">
+            <img src="{{ asset('images/header-perso.svg') }}" alt="image d'un pirate, d'une sirène et d'un marin">
+            <div class="header-content-text">
+                <h1>Projet ICO</h1>
+                <p>Un jeu de société pour les petits et les grands</p>
+                <div class="info">
+                    <p>nombre de joueurs min - max</p>
+                    <p>âge</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ico container">
+        <h2>Qu'est ce que ICO ?</h2>
+        <p>section pour présenter le jeu</p>
+        <p>une rapide explication des mécaniques et spécificités du jeu</p>
+        <div class="img-cards">
+            <img src="{{ asset('images/cards/marin.png') }}" alt="image de la carte du marin">
+            <img src="{{ asset('images/cards/pirate.png') }}" alt="image de la carte du pirate">
+            <img src="{{ asset('images/cards/sirene.png') }}" alt="image de la carte de la sirène">
+        </div>
+        <p>mettre plus de photo des cartes et du paquet de jeu</p>
+    </section>
+    <section class="container event-news-container">
+        <h2>Événements et news</h2>
+        <div class="event-news">
+            <div class="event">
+                <p>card pour le prochains events</p>
+                <p>bouton pour voir plus d'évènements</p>
+            </div>
+            <div class="news">
+                <p>card de la dernière news sortie</p>
+                <p>bouton pour voir toutes les news</p>
+            </div>
+        </div>
+    </section>
+    <section class="download container">
+        <h2>Téléchargement</h2>
+        <div class="grid-download">
+            <div class="rules">
+                <p>télécharger les règles</p>
+            </div>
+            <div class="cards">
+                <p>télécharger les explications des cartes</p>
+            </div>
+        </div>
+    </section>
 {% endblock %}
