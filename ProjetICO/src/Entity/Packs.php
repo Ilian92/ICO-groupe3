@@ -34,6 +34,12 @@ class Packs
     #[ORM\OneToMany(targetEntity: Cards::class, mappedBy: 'pack_id')]
     private Collection $cards;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $fnac_link = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $amazon_link = null;
+
     public function __construct()
     {
         $this->cards = new ArrayCollection();
@@ -129,6 +135,30 @@ class Packs
                 $card->setPackId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFnacLink(): ?string
+    {
+        return $this->fnac_link;
+    }
+
+    public function setFnacLink(?string $fnac_link): static
+    {
+        $this->fnac_link = $fnac_link;
+
+        return $this;
+    }
+
+    public function getAmazonLink(): ?string
+    {
+        return $this->amazon_link;
+    }
+
+    public function setAmazonLink(?string $amazon_link): static
+    {
+        $this->amazon_link = $amazon_link;
 
         return $this;
     }
