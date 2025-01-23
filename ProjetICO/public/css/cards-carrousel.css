@@ -76,27 +76,6 @@
     right: 36%;
 }
 
-.badge-ico {
-    border-radius: 20px;
-    padding: 5px 15px;
-    display: flex;
-    justify-content: center;
-    max-width: max-content;
-}
-
-.badge-ico.badge-vert-pomme {
-    background-color: var(--vert-pomme);
-}
-
-.badge-ico.badge-rouge-corail {
-    background-color: var(--rouge-corail);
-    color: var(--beige);
-}
-
-.badge-ico.badge-jaune-moutarde {
-    background-color: var(--jaune-moutarde);
-}
-
 .name-badge {
     display: flex;
     flex-direction: column;

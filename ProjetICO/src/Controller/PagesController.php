@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Pages;
 use App\Form\PagesType;
 use App\Repository\PagesRepository;
+use App\Repository\RulesRepository;
+use App\Repository\NewsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -80,11 +82,23 @@ class PagesController extends AbstractController
     }
 
     #[Route('/home', name: 'app_home', methods: ['GET'])]
-    public function home(PagesRepository $pagesRepository): Response
+    public function home(PagesRepository $pagesRepository, RulesRepository $rulesRepository, NewsRepository $newsRepository): Response
     {
         $homePage = $pagesRepository->findOneBy(['slug' => 'home']);
+        $rules = $rulesRepository->findAll();
+        $news = $newsRepository->findByStatus('news');
+        $events = $newsRepository->findByStatus('event');
+
+        $latestNews = end($news);
+        $latestEvent = end($events);
+
         return $this->render('pages/home.html.twig', [
             'page' => $homePage,
+            'rules' => $rules,
+            'latestNews' => $latestNews,
+            'latestEvent' => $latestEvent,
+            'news' => $news,
+            'events' => $events,
         ]);
     }
 }
