@@ -253,10 +253,17 @@ footer .menu-footer ul {
     display: flex;
     padding: 2em;
     gap: 2em;
-    background-color: var(--bleu-royal);
     border-radius: 15px;
     max-height: 264px;
     margin: 30px 20px;
+}
+
+.news-item {
+    background-color: var(--bleu-royal);
+}
+
+.events-item {
+    background-color: var(--rouge-corail);
 }
 
 .news-item > div,
@@ -277,16 +284,26 @@ footer .menu-footer ul {
     text-decoration: none;
 }
 
+.events-contaier a {
+    text-decoration: none;
+}
+
 .news-item h2 {
     color: white;
 }
 
-.news-date {
+.events-item h2 {
+    color: white;
+}
+
+.news-date,
+.events-date {
     color: black;
     font-size: 14px;
 }
 
-.news-content {
+.news-content,
+.events-content {
     color: white;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -294,15 +311,18 @@ footer .menu-footer ul {
     max-width: 1180px;
 }
 
-.news-all-text {
+.news-all-text,
+.events-all-text {
     margin: auto 0;
 }
 
-.news-image {
+.news-image,
+.events-image {
     object-fit: contain;
 }
 
-.news-title {
+.news-title,
+.events-title {
     text-align: center;
     padding-top: 40px;
     margin-bottom: 60px;
