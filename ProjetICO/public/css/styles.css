@@ -255,17 +255,6 @@ footer .menu-footer ul {
 text-align: center;
 }
 
-@media screen and (max-width: 768px) {
-	.pack-item {
-		grid-template-columns: repeat(1, 1fr);
-	}
-	.pack-item img {
-		width: 100%;
-		max-width: 500px;
-		margin: auto;
-	}
-}
-
 @media screen and (max-width: 576px) {
 	.card-detail {
 		grid-template-columns: repeat(1, 1fr);
