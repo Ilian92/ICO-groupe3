@@ -93,6 +93,7 @@ h1 {
 
 .links-container a, .links-container button{
     width: 100%;
+    font-family: "Filson Pro";
 }
 
 .affiliate-link:hover {
