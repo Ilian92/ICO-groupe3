@@ -69,6 +69,20 @@ h1 {
     padding: 5em;
 }
 
+.affiliate-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f5a623;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.affiliate-link:hover {
+    background-color: #e59400;
+}
+
 @media screen and (max-width: 768px) {
     .pack-item {
         grid-template-columns: repeat(1, 1fr);
