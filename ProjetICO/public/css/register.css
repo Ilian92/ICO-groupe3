@@ -59,6 +59,12 @@
     font-family: "Filson Pro";
 }
 
+.btn:hover {
+    background-color: var(--rouge-corail);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
 .login-link {
     text-align: center;
     margin-top: 20px;
