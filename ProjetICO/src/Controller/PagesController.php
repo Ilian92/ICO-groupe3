@@ -9,10 +9,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/pages')]
-final class PagesController extends AbstractController{
+class PagesController extends AbstractController
+{
     #[Route(name: 'app_pages_index', methods: ['GET'])]
     public function index(PagesRepository $pagesRepository): Response
     {
@@ -70,11 +71,20 @@ final class PagesController extends AbstractController{
     #[Route('/{id}', name: 'app_pages_delete', methods: ['POST'])]
     public function delete(Request $request, Pages $page, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$page->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$page->getId(), $request->get('_token'))) {
             $entityManager->remove($page);
             $entityManager->flush();
         }
 
         return $this->redirectToRoute('app_pages_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/home', name: 'app_home', methods: ['GET'])]
+    public function home(PagesRepository $pagesRepository): Response
+    {
+        $homePage = $pagesRepository->findOneBy(['slug' => 'home']);
+        return $this->render('pages/home.html.twig', [
+            'page' => $homePage,
+        ]);
     }
 }

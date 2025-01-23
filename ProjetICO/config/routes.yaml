@@ -1,12 +1,10 @@
 controllers:
-  resource:
-    path: ../src/Controller/
-    namespace: App\Controller
+  resource: '../src/Controller/'
   type: attribute
 
 home:
   path: /
-  controller: App\Controller\HomeController::index
+  controller: App\Controller\PagesController::home
 
 events:
   path: /events
@@ -22,7 +20,7 @@ register:
 
 news:
   path: /news
-  controller: App\Controller\NewsController::index
+  controller: App\Controller\NewsController::listNews
 
 packs:
   path: /packs
@@ -36,23 +34,6 @@ cards:
   path: /cards
   controller: App\Controller\CardsController::index
 
-show_news:
-  path: /news/{id}
-  controller: App\Controller\NewsController::show
-
-event_show:
-  path: /events/{id}
-  controller: App\Controller\NewsController::show
-
-user_account:
-  path: /compte
-  controller: App\Controller\UserAccountController::index
-
-cart:
-  path: /panier
-  controller: App\Controller\UserAccountController::cart
-
-order_history:
-  path: /historique
-  controller: App\Controller\UserAccountController::orderHistory
-
+admin:
+  resource: '../src/Controller/AdminController.php'
+  type: attribute
