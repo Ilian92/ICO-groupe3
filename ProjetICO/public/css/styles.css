@@ -300,3 +300,9 @@ text-align: center;
 		margin: auto;
 	}
 }
+
+@media screen and (max-width: 576px) {
+	.card-detail {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
