@@ -288,3 +288,20 @@ footer .menu-footer ul {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+
+
+#user div{
+    font-family: "Filson Pro";
+    text-align: center;
+    display: grid;
+}
+#user div label{
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+#user div input{
+    margin: 20px auto;
+}

@@ -20,6 +20,7 @@
     padding: 20px;
     background: url("../assets/white-background.svg");
     border-radius: 30px;
+    text-align:center;
 }
 
 .user-text-police {
@@ -72,4 +73,8 @@ hr {
     border-radius: 12px;
     font-family: "Filson Pro";
     text-decoration: none;
+}
+
+a.btn{
+    margin: 20px;
 }

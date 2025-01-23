@@ -8,7 +8,7 @@
 
 {% block body %}
 <section class="user-body">
-    <h1 class="user-title" >Compte utilisateur</h1>
+    <h1 class="user-title">Compte utilisateur</h1>
     <div class="user-container">
         <h2 class="user-subtitle">Vos informations personnelles</h2>
         <hr>
@@ -30,14 +30,13 @@
                 <h3 class="user-info-title">Adresse postale</h3>
                 {% if app.user.address %}
                 <div class="user-info">{{ app.user.address }}</div>
-                {% endif %}
-                {% if app.user.address == false %}
-                <div  class="user-info">Vous n'avez pas renseigné d'adresse postale</div>
+                {% else %}
+                <div class="user-info">Vous n'avez pas renseigné d'adresse postale</div>
                 {% endif %}
             </div>
         </div>
         <div class="btn-container">
-            <a href="/#" class="btn">Modifier mes informations</a>
+            <a href="{{ path('user_account_edit') }}" class="btn">Modifier mes informations</a>
         </div>
     </div>
 </section>
