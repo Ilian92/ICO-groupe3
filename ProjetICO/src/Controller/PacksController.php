@@ -27,6 +27,8 @@ class PacksController extends AbstractController
             'pack' => $pack,
             'cards' => $pack->getCards(),
             'cardCount' => count($pack->getCards()),
+            'stripe_public_key' => $this->getParameter('stripe.public_key'), // Ajout de la clé publique
         ]);
     }
+    
 }
