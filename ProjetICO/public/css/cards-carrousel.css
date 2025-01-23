@@ -1,0 +1,92 @@
+.cards-carrousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+
+.card-name {
+    flex: 1;
+    text-align: left;
+}
+
+.card-description {
+    flex: 2;
+    text-align: right;
+    max-width: 50%;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+    gap: 50px;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.carousel-item.active {
+    transform: scale(1.2);
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+.badge-ico {
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.badge-ico.badge-vert-pomme {
+    background-color: var(--vert-pomme);
+}
+
+.badge-ico.badge-jaune-moutarde {
+    background-color: var(--jaune-moutarde);
+}

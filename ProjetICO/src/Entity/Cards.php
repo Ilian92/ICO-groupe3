@@ -75,14 +75,14 @@ class Cards
         return $this;
     }
 
-    public function getPackId(): ?Packs
+    public function getPack(): ?Packs
     {
         return $this->pack_id;
     }
 
-    public function setPackId(?Packs $pack_id): static
+    public function setPack(?Packs $pack): static
     {
-        $this->pack_id = $pack_id;
+        $this->pack = $pack;
 
         return $this;
     }

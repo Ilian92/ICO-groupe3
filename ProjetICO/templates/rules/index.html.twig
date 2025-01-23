@@ -4,8 +4,13 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/rules.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cards-carrousel.css') }}">
 {% endblock %}
     
+{% block javascripts %}
+    <script src="{{ asset('js/cards-carrousel.js') }}"></script>
+{% endblock %}
+
 {% block body %}
     <section class="header container">
         <div class="header-content">
@@ -50,19 +55,10 @@
         {# <h2 id="Materiel">Matériel ({{ card.total_count }} Cartes dont deux cartes «règle du jeu»)</h2> #}
         <h3>tableau des cartes et quantité</h3>
     </section>
-    <section id="cartes" class="container">
 
-        
 
-        {# <div class="character-container">
-            {% for card in cards %}
-                <div class="character">
-                    <img src="{{ asset(card.image) }}" alt="{{ card.name }}">
-                    <p><strong>Nom du personnage</strong> : <em>{{ card.name }}</em></p>
-                    <p>Rôle : {{ card.description }}</p>
-                </div>
-            {% endfor %}
-        </div> #}
+    <section id="cartes">
+        {% include 'rules/cards-carrousel.html.twig' %}
     </section>
 
 
