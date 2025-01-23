@@ -10,8 +10,8 @@
         <div class="header-content">
             <img src="{{ asset('assets/header-perso.svg') }}" alt="image d'un pirate, d'une sirène et d'un marin">
             <div class="header-content-text">
-                <h1>ICO</h1>
-                <h2>Un jeu de société pour les petits et les grands</h2>
+                <h1>Plongez dans l'univers d'<strong>ICO</strong> et découvrez le pouvoir des rôles secrets !</h1>
+                <h2>Rejoignez l’équipage, démasquez les traîtres, et remportez la partie !</h2>
                 <div class="info">
                     <div>
                         <img src="{{ asset('assets/icons/icon-badge.svg') }}" alt="icon d'un badge">
@@ -22,12 +22,15 @@
                         <p>10 ans et +</p>
                     </div>
                 </div>
+                <a class="btn-ico btn-ico-rouge" href="">Achetez ICO et rassemblez votre équipage !</a>
             </div>
         </div>
     </section>
     <section class="ico container">
         <h2>Qu'est ce que ICO ?</h2>
-        <p>ICO est un jeu de société numérique où <strong>pirates</strong>, <strong>marins</strong> et <strong>sirènes</strong> s'affrontent pour le contrôle d’un trésor en mer.</p>
+        <p>ICO, c’est bien plus qu’un jeu de société : c’est une bataille stratégique où le <strong>bluff</strong> et la <strong>déduction</strong> règnent en maîtres. Marins loyaux, pirates infiltrés et une mystérieuse sirène s’affrontent dans un univers rempli de secrets et de trahisons</p>
+        <p><strong>Intrigues</strong>, <strong>alliances</strong> et <strong>retournements de situation</strong> sont au rendez-vous dans chaque partie d’ICO !</p>
+        <h3>Qui êtes-vous dans cette tempête ?</h3>
         <div class="img-cards">
             {% for but in rules %}
                 {% if but.section == 'but-card' %}
@@ -52,21 +55,21 @@
                 {% endif %}
             {% endfor %}
         </div>
+        <a class="btn-ico btn-ico-vert mx-auto" href="{{ path('cards_index') }}">Explorez les cartes et révélez leurs mystères</a>
     </section>
 
 
     <section class="container event-news-container">
-        {{dump()}}
-
-        <h2>Événements et news</h2>
+        <h2 class="text-center">Restez à flot avec nos dernières actualités et évènements !</h2>
         <div class="event-news">
             <div class="news card-event-news">
                 {% if latestNews %}
                     <img src="{{ latestNews.image }}" alt="">
                     <div class="content">
                         <p class="badge-ico badge-rouge-corail">News</p>
-                        <h3>{{ latestNews.title }}</h3>
+                        <a href="{{ path('news_show', {'id': latestNews.id}) }}" class="h3">{{ latestNews.title }}</a>
                         <p>{{ latestNews.content }}</p>
+                        <a class="btn-ico btn-ico-rouge bg-white" href="{{ path('news') }}">Plongez dans les archives</a>
                     </div>
                 {% else %}
                     <p>Aucune news disponible.</p>
@@ -77,8 +80,9 @@
                     <img src="{{ latestEvent.image }}" alt="">
                     <div class="content">
                         <p class="badge-ico badge-vert-pomme">Event</p>
-                        <h3>{{ latestEvent.title }}</h3>
+                        <a href="{{ path('events_show', {'id': latestEvent.id}) }}" class="h3">{{ latestEvent.title }}</a>
                         <p>{{ latestEvent.content }}</p>
+                        <a class="btn-ico btn-ico-vert" href="{{ path('events') }}">Participez aux prochaines batailles !</a>
                     </div>
                 {% else %}
                     <p>Aucun événement disponible.</p>
@@ -90,13 +94,13 @@
 
 
     <section class="download container">
-        <h2>Téléchargement</h2>
+        <h2 class="text-center">Cartes et stratégies : tout ce qu’il faut savoir pour dominer les mers</h2>
         <div class="grid-download">
             <div class="rules">
-                <p>télécharger les règles</p>
+                <a href="{{ asset('pdf/regles.pdf') }}" download>Téléchargez les règles du jeu</a>
             </div>
             <div class="cards">
-                <p>télécharger les explications des cartes</p>
+                <a href="{{ path('cards_index') }}">Découvrez les secrets des cartes</a>
             </div>
         </div>
     </section>
