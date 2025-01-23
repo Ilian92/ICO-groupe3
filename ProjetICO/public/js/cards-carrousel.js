@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const leftArrow = document.querySelector('.arrow.left');
     const rightArrow = document.querySelector('.arrow.right');
 
-    let activeIndex = 32;
+    let activeIndex = 30;
 
     function updateCarousel() {
         items.forEach((item, index) => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cardName.textContent = activeItem.querySelector('.card-name').textContent;
         cardDescription.textContent = activeItem.querySelector('.card-description').textContent;
         badge.innerHTML = activeItem.querySelector('.badge-info').innerHTML;
-        const offset = -(activeIndex * (items[0].offsetWidth + 50) - (carousel.offsetWidth / 2 - items[0].offsetWidth / 2));
+        const offset = -(activeIndex * (items[0].offsetWidth + 51) - (carousel.offsetWidth / 2 - items[0].offsetWidth / 2));
         carousel.style.transform = `translateX(${offset}px)`;
     }
 
