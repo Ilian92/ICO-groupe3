@@ -66,3 +66,13 @@
     text-align: center;
     margin-top: 20px;
 }
+
+.errors {
+    color: red;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.center-text {
+    text-align: center;
+}

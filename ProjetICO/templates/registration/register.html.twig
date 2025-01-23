@@ -15,10 +15,12 @@
 
     <h1 class="register-title">Rejoignez l'aventure ICO !</h1>
 
-    {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
         <h2 class="register-subtitle">Créez votre compte</h2>
+        <div class="errors">
+            {{ form_errors(registrationForm, {attr: {class: "errors"}}) }}
+        </div>
         {{ form_row(registrationForm.first_name) }}
         {{ form_row(registrationForm.last_name) }}
         {{ form_row(registrationForm.email) }}

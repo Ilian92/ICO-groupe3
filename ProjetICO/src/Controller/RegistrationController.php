@@ -33,6 +33,16 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
+        // $password = $user->getPassword();
+
+        // $verif = preg_match('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$', $password);
+
+        // if ($verif) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var string $plainPassword */
             $plainPassword = $user->getPassword();
