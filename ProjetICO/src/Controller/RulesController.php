@@ -16,7 +16,7 @@ class RulesController extends AbstractController
     {
         $rules = $rulesRepository->findAll();
         $cards = $cardsRepository->findAll();
-        $packs = $packsRepository->findAll();
+        $packs = $packsRepository->countTotalCardsInPack();
 
         return $this->render('rules/index.html.twig', [
             'rules' => $rules,

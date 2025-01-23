@@ -23,7 +23,7 @@
         </div>
     </section>
     
-    <section id="sommaire" class="container">
+    {# <section id="sommaire" class="container">
         <h2>Sommaire</h2>
         <ol type="I">
             <li><a href="#but">But du jeu</a></li>
@@ -38,7 +38,7 @@
                 <li><a href="#conditions">Conditions de Victoire</a></li>
             </ol>
         </ol>
-    </section>
+    </section> #}
 
 
     <section id="but" class="container">
@@ -52,8 +52,9 @@
 
 
     <section id="materiel" class="container">
-        {# <h2 id="Materiel">Matériel ({{ card.total_count }} Cartes dont deux cartes «règle du jeu»)</h2> #}
-        <h3>tableau des cartes et quantité</h3>
+        {% for pack in packs %}
+            {# <li>{{ pack.name }}: {{ pack.total_count }} cards</li> #}
+        {% endfor %}
     </section>
 
 
