@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acheter le pack {{ pack.name }}{% endblock %}
+
+{% block body %}
+    <h1>Acheter le pack : {{ pack.name }}</h1>
+    <p>Prix : {{ pack.price }} €</p>
+    <button id="checkout-button">Acheter maintenant</button>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripe = Stripe('{{ stripe_public_key }}');
+
+        document.getElementById('checkout-button').addEventListener('click', function () {
+            fetch('/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    pack_id: {{ pack.id }},
+                    pack_name: "{{ pack.name }}",
+                    price: {{ price }}
+                })
+            })
+            .then(response => response.json())
+            .then(session => {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(result => {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+{% endblock %}
