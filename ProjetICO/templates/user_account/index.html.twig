@@ -3,10 +3,42 @@
 {% block title %}Compte utilisateur{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/user-account.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}">
 {% endblock %}
 
 {% block body %}
-    <h1>Compte utilisateur</h1>
-    <p>Informations du compte utilisateur...</p>
+<section class="user-body">
+    <h1 class="user-title" >Compte utilisateur</h1>
+    <div class="user-container">
+        <h2 class="user-subtitle">Vos informations personnelles</h2>
+        <hr>
+
+        <div class="user-infos">
+            <div class="user-text-police">
+                <h3 class="user-info-title">Adresse Email</h3>
+                <div class="user-info">{{ app.user.email }}</div>
+            </div>
+            <div class="user-text-police">
+                <h3 class="user-info-title">Prénom</h3>
+                <div class="user-info">{{ app.user.firstName }}</div>
+            </div>
+            <div class="user-text-police">
+                <h3 class="user-info-title">Nom</h3>
+                <div class="user-info">{{ app.user.lastName }}</div>
+            </div>
+            <div class="user-text-police">
+                <h3 class="user-info-title">Adresse postale</h3>
+                {% if app.user.address %}
+                <div class="user-info">{{ app.user.address }}</div>
+                {% endif %}
+                {% if app.user.address == false %}
+                <div  class="user-info">Vous n'avez pas renseigné d'adresse postale</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="btn-container">
+            <a href="/#" class="btn">Modifier mes informations</a>
+        </div>
+    </div>
+</section>
 {% endblock %}
