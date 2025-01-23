@@ -1,10 +1,11 @@
 .cards-carrousel-container {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 75px;
 }
 
 .card-details {
@@ -12,18 +13,17 @@
     justify-content: space-between;
     width: 80%;
     margin-bottom: 20px;
-    min-height: 100px;
+    min-height: 180px;
 }
 
 .card-name {
-    flex: 1;
     text-align: left;
 }
 
 .card-description {
     flex: 2;
     text-align: right;
-    max-width: 50%;
+    max-width: 35%;
 }
 
 .carousel-container {
@@ -42,7 +42,7 @@
 
 .carousel-item {
     flex: 0 0 auto;
-    width: 200px;
+    width: 150px;
     border-radius: 10px;
     text-align: center;
     display: flex;
@@ -53,13 +53,13 @@
 }
 
 .carousel-item.active {
-    transform: scale(1.2);
+    transform: scale(1.8);
+    margin: 0 40px;
 }
 
 .arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: -50%;
     background: black;
     color: white;
     border: none;
@@ -69,11 +69,11 @@
 }
 
 .arrow.left {
-    left: 10px;
+    left: 37%;
 }
 
 .arrow.right {
-    right: 10px;
+    right: 36%;
 }
 
 .badge-ico {
@@ -81,12 +81,24 @@
     padding: 5px 15px;
     display: flex;
     justify-content: center;
+    max-width: max-content;
 }
 
 .badge-ico.badge-vert-pomme {
     background-color: var(--vert-pomme);
 }
 
+.badge-ico.badge-rouge-corail {
+    background-color: var(--rouge-corail);
+    color: var(--beige);
+}
+
 .badge-ico.badge-jaune-moutarde {
     background-color: var(--jaune-moutarde);
+}
+
+.name-badge {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

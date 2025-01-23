@@ -18,10 +18,16 @@ class RulesController extends AbstractController
         $cards = $cardsRepository->findAll();
         $packs = $packsRepository->findAll();
 
+        $totalCardsInPacks = [];
+        foreach ($packs as $pack) {
+            $totalCardsInPacks[$pack->getId()] = $packsRepository->getTotalCardsInPack($pack->getId());
+        }
+
         return $this->render('rules/index.html.twig', [
             'rules' => $rules,
             'cards' => $cards,
-            'packs' => $cards,
+            'packs' => $packs,
+            'totalCardsInPacks' => $totalCardsInPacks,
         ]);
     }
 }

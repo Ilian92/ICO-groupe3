@@ -1,0 +1,15 @@
+.distribution-container .distribution-header, .distribution-container .distribution-row {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.distribution-container {
+    display: flex;
+}
+
+.banner-info {
+    background-color: var(--jaune-moutarde);
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+}

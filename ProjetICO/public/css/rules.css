@@ -1,6 +1,6 @@
 .header {
     background-color: var(--beige);
-    background-image: url(../images/bg/bg-rules.png);
+    background-image: url(../assets/bg/bg-rules.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right bottom;
@@ -76,5 +76,14 @@
 }
 
 section {
-    padding: 100px 0;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.banner-warning {
+    padding: 40px;
+    border-radius: 10px;
+    background-color: var(--rouge-corail);
+    color: var(--beige);
+    text-align: center;
 }

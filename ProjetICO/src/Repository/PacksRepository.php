@@ -26,6 +26,17 @@ class PacksRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
+
+    public function getTotalCardsInPack(int $packId): int
+    {
+        return $this->createQueryBuilder('p')
+            ->select('SUM(c.quantity)')
+            ->leftJoin('p.cards', 'c')
+            ->where('p.id = :packId')
+            ->setParameter('packId', $packId)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 //    /**
 //     * @return Packs[] Returns an array of Packs objects
 //     */

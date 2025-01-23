@@ -97,6 +97,31 @@ INSERT INTO `packs` (`id`, `name`, `description`, `price`, `image`, `created_at`
 -- Déchargement des données de la table `users`
 --
 
+INSERT INTO `rules` (`id`, `pack_id_id`, `content`, `section`, `title`) VALUES
+(1, 1, '', 'but', 'But du jeu'),
+(2, 1, 'Pour les Marins et la Sirène : Identifier les pirates afin de choisir le bon équipage, pour pouvoir mettre le trésor en lieu sûr', 'but', NULL),
+(3, 1, 'Pour les Pirates : Gagner la confiance des Marins et les empoisonner afin de voler le trésor', 'but', NULL),
+(7, 1, 'Les joueurs désignent ou tirent au sort le capitaine, il dirigera le début de la partie et jouera également.', 'mise-en-place', NULL),
+(8, 1, 'Le capitaine distribue à chaque joueur une carte rôle et une carte bonus. Chaque joueur regarde discrètement son rôle et sa carte bonus puis repose ses cartes face cachées devant lui.', 'mise-en-place', NULL),
+(9, 1, 'Le capitaine demande aux joueurs de fermer les yeux. Tous les joueurs baissent la tête et ferment les yeux (le capitaine aussi). Puis il appelle les pirates et à la sirène à ouvrir les yeux (le capitaine ouvrira les yeux s’il a un de ses rôles) et leur laisse suffisamment de temps pour se regarder.', 'mise-en-place', NULL),
+(10, 1, 'Il demande à tout le monde de fermer les yeux.', 'mise-en-place', NULL),
+(11, 1, 'Et pour finir il va demander à tout le monde de réouvrir les yeux.', 'mise-en-place', NULL),
+(12, 1, 'Attention : Vous ne fermerez plus les yeux par la suite, retenez bien qui a ouvert les yeux.', 'mise-en-place', 'banner-warning'),
+(13, 1, '', 'premier-voyage', 'Déroulement du premier voyage'),
+(14, 1, 'Le capitaine choisi un équipage de trois personnes (dont il peut faire parti), il faut maintenant donner une carte poison et une carte île à chaque personne de l’équipage.', 'premier-voyage', NULL),
+(15, 1, 'Chaque participant choisit la carte qu’il veut poser et la met au milieu en face cachée, il place la carte non utilisée devant lui, toujours en face cachée.', 'premier-voyage', NULL),
+(16, 1, 'Un joueur mélange les cartes mises en jeu et les retournes.', 'premier-voyage', NULL),
+(17, 1, 'S’il y a au moins une carte poison les pirates marquent un point, s’il y a trois cartes îles c’est les marins et la sirène qui remportent le point.', 'premier-voyage', NULL),
+(18, 1, 'Le résultat étant connu, il faut récupérer toutes les cartes en face cachée, les mélanger et les redistribuer lors du prochain voyage.', 'premier-voyage', NULL),
+(20, 1, '', 'suite-partie', 'Suite de la partie'),
+(21, 1, 'C’est le joueur suivant, dans le sens des aiguilles d’une montre, qui doit à nouveau choisir un équipage de trois personnes.', 'suite-partie', NULL),
+(22, 1, 'ATTENTION ! A partir de ce tour et jusqu’à la fin de la partie il y aura un vote lorsque trois personnes seront proposées. (La personne qui propose l’équipage est forcément pour)', 'suite-partie', 'banner-warning'),
+(23, 1, 'Si la majorité des joueurs (ou au moins la moitié en cas de joueurs pair) est contre, l’équipage ne part pas et la personne peut proposer un nouvel équipage, qui sera différent d’au moins une personne.', 'suite-partie', NULL),
+(24, 1, 'Si l’équipage est à nouveau refusé, la personne qui les a choisis passera son tour.', 'suite-partie', NULL),
+(25, 1, 'Vous pouvez maintenant réitérer ce schéma jusqu’à la victoire d’une équipe, sans oublié d’utiliser vos cartes bonus à bon escient.', 'suite-partie', NULL),
+(26, 1, 'Une équipe gagne dès qu’elle remporte dix manches.', 'victoire', NULL),
+(27, 1, 'Si les marins gagnent, la Sirène gagne avec eux. Si les pirates gagnent, ils doivent voter afin d’identifier la sirène, si la majorité se trompent la sirène gagne la partie seule.', 'victoire', NULL);
+
 INSERT INTO `users` (`id`, `email`, `password`, `first_name`, `last_name`, `address`, `is_verified`, `created_at`, `roles`) VALUES
 (1, 'rudy.vieira3@gmail.com', '$2y$13$PRT4zHL48MqvoEGHKxFDNegT7CDVVpq7e.TOfiirvd1qUB.8cceb2', 'Rudy', 'Vieira', 'abab', 1, '2025-01-22 21:38:32', '[\"ROLE_USER\"]');
 COMMIT;

@@ -1,0 +1,24 @@
+{% block body %}
+    <h2>Distribution des cartes</h2>
+    <div class="counter-container">
+        <div class="counter">
+            <button id="decrease">-</button>
+            <span id="playersCount">7</span>
+            <button id="increase">+</button>
+        </div>
+        
+        <div class="distribution-container">
+            <div class="distribution-header">
+                <img src="{{ asset('assets/icons/icon-marin.svg') }}" alt="icon d'un marin">
+                <img src="{{ asset('assets/icons/icon-pirate.svg') }}" alt="icon d'un pirate">
+                <img src="{{ asset('assets/icons/icon-sirene.svg') }}" alt="icon d'une sirène">
+            </div>
+            <div class="distribution-row">
+                <div id="pirates">3</div>
+                <div id="marins">3</div>
+                <div id="sirene">1</div>
+            </div>
+        </div>    
+    </div>
+    <p class="banner-info">Il faut également donner une carte bonus à chaque joueur</p>
+{% endblock %}
