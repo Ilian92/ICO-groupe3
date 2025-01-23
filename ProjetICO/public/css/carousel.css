@@ -1,8 +1,14 @@
 .swiper-slide{
     width: 422px;
     margin-right: 10px;
+    transition: 0.5s;
 }
-    
+
+.swiper-slide:hover{
+    scale: 110%;
+  z-index: 1;
+}
+
 .swiper-wrapper{
     transition-duration: 0ms;
     transform: translate3d(-648px, 0px, 0px);
