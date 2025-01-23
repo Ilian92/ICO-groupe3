@@ -24,45 +24,18 @@
         <p>{{ pack.description }}</p>
         <p>{{ pack.price }} €</p>
 
+        <div class="links-container">
         <form id="checkout-form">
             <button id="checkout-button" type="button">Acheter ce pack</button>
         </form>
-
-        <script>
-            const stripe = Stripe('{{ stripe_public_key }}');
-
-            document.getElementById('checkout-button').addEventListener('click', function () {
-                fetch('/create-checkout-session', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        pack_id: {{ pack.id }},
-                        pack_name: "{{ pack.name }}",
-                        price: {{ pack.price * 100 }} // Convertir en centimes
-                    })
-                })
-                .then(response => response.json())
-                .then(session => {
-                    return stripe.redirectToCheckout({ sessionId: session.id });
-                })
-                .then(result => {
-                    if (result.error) {
-                        alert(result.error.message);
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-            });
-        </script>
-
-        {% if pack.FnacLink %}
+                {% if pack.FnacLink %}
             <a href="{{ pack.FnacLink }}" target="_blank" class="affiliate-link">Acheter chez la Fnac</a>
         {% endif %}
 
         {% if pack.AmazonLink %}
             <a href="{{ pack.AmazonLink }}" target="_blank" class="affiliate-link">Acheter sur Amazon</a>
         {% endif %}
+        </div>
     </div>
 </article>
 
@@ -94,34 +67,59 @@
 </div>
 
 <script>
-    var swiper = new Swiper(".centered-slide-carousel", {
-        centeredSlides: true,
-        paginationClickable: true,
-        loop: true,
-        spaceBetween: 30,
-        slideToClickedSlide: true,
-        pagination: {
-            el: ".centered-slide-carousel .swiper-pagination",
-            clickable: true,
+const stripe = Stripe('{{ stripe_public_key }}');
+document.getElementById('checkout-button').addEventListener('click', function () {
+    fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
         },
-        breakpoints: {
-            1920: {
-                slidesPerView: 9,
-                spaceBetween: 30,
-            },
-            1028: {
-                slidesPerView: 6,
-                spaceBetween: 30,
-            },
-            990: {
-                slidesPerView: 4,
-                spaceBetween: 30,
-            },
-            0: {
-                slidesPerView: 3,
-                spaceBetween: 10,
-            },
+        body: JSON.stringify({
+            pack_id: {{ pack.id }},
+            pack_name: "{{ pack.name }}",
+            price: {{ pack.price * 100 }} // Convertir en centimes
+        })
+    })
+    .then(response => response.json())
+    .then(session => {
+        return stripe.redirectToCheckout({ sessionId: session.id });
+    })
+    .then(result => {
+        if (result.error) {
+            alert(result.error.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+var swiper = new Swiper(".centered-slide-carousel", {
+    centeredSlides: true,
+    paginationClickable: true,
+    loop: true,
+    spaceBetween: 30,
+    slideToClickedSlide: true,
+    pagination: {
+        el: ".centered-slide-carousel .swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        1920: {
+            slidesPerView: 9,
+            spaceBetween: 30,
         },
-    });
+        1028: {
+            slidesPerView: 6,
+            spaceBetween: 30,
+        },
+        990: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+        0: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+        },
+    },
+});
 </script>
 {% endblock %}

@@ -69,18 +69,38 @@ h1 {
     padding: 5em;
 }
 
-.affiliate-link {
+.affiliate-link, #checkout-button {
     display: inline-block;
     margin-top: 10px;
     padding: 10px;
-    background-color: #f5a623;
+    background-color: #626262;
     color: white;
     border-radius: 5px;
     text-decoration: none;
 }
 
+#checkout-button{
+    border: none;
+    background-color: #3b60bc;
+    cursor: pointer;
+}
+
+.links-container{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.links-container a, .links-container button{
+    width: 100%;
+}
+
 .affiliate-link:hover {
-    background-color: #e59400;
+    background-color: #838383;
+}
+
+#checkout-button:hover {
+    background-color: #5877c6;
 }
 
 @media screen and (max-width: 768px) {
