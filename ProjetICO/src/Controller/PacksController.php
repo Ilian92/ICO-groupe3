@@ -30,9 +30,12 @@ class PacksController extends AbstractController
             throw $this->createNotFoundException('Le pack demandé n\'existe pas.');
         }
 
+        $cardCount = $packsRepository->countCardsInPack($id);
+
         return $this->render('packs/show.html.twig', [
             'pack' => $pack,
             'cards' => $pack->getCards(),
+            'cardCount' => $cardCount,  
         ]);
     }
 }

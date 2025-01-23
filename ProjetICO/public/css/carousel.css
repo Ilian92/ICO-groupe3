@@ -1,0 +1,14 @@
+.swiper-slide{
+    width: 422px;
+    margin-right: 10px;
+}
+    
+.swiper-wrapper{
+    transition-duration: 0ms;
+    transform: translate3d(-648px, 0px, 0px);
+    transition-delay: 0ms;
+}
+
+.margin-container{
+    margin: 2em 0;
+}
