@@ -200,57 +200,6 @@ footer .menu-footer ul {
     margin: auto;
 }
 
-/*-------------- Packs --------------*/
-
-.packs {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 2em;
-}
-
-.packs-item {
-	padding: 1em;
-    background: url("../assets/white-background.svg");
-    border-radius: 1em;
-    margin: 1em;
-}
-
-.packs-item h2{
-    text-align: center;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.packs-item a{
-    width: 100%;
-    display: block;
-    padding-bottom: 1em;
-}
-
-.packs-item a,
-.news-item a,
-.events-item a {
-	text-decoration: none;
-	color: black;
-}
-
-.packs-item img {
-	width: 100%;
-	aspect-ratio: 1/1;
-	height: auto;
-	object-fit: cover;
-    border-radius: 0.5em;
-}
-
-/*-------------- Individual Pack --------------*/
-
-.pack-item {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 5em;
-	padding: 5em;
-}
-
 /*-------------- News Items --------------*/
 
 .news-item, .events-item {
