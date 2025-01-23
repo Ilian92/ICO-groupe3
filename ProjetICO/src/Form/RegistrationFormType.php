@@ -20,13 +20,20 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => false,
+                'label' => 'Email',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => 'Email',
                     'class' => 'form-input',
                 ],
             ])
             ->add('password', PasswordType::class, [
+                'label' => 'Mot de passe',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => 'Mot de passe',
                     'class' => 'form-input',
@@ -35,20 +42,33 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('first_name', TextType::class, [
+                'label' => 'Prénom',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => 'Prénom',
                     'class' => 'form-input',
                 ],
             ])
             ->add('last_name', TextType::class, [
+                'label' => 'Nom',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
                 'attr' => [
                     'placeholder' => 'Nom',
                     'class' => 'form-input',
                 ],
             ])
             ->add('address', TextType::class, [
+                'label' => 'Adresse',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
+                'required' => false,
                 'attr' => [
-                    'placeholder' => '1 rue de Paris 75000 Paris',
+                    'placeholder' => 'Adresse (optionnel)',
                     'class' => 'form-input',
                 ],
             ]);
