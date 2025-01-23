@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use function Symfony\Component\Clock\now;
+
 #[ORM\Entity(repositoryClass: PacksRepository::class)]
 class Packs
 {
@@ -43,6 +45,7 @@ class Packs
     public function __construct()
     {
         $this->cards = new ArrayCollection();
+        $this->created_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int

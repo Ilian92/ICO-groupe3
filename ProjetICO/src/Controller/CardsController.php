@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Repository\CardsRepository;
@@ -7,9 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/cards')]
 class CardsController extends AbstractController
 {
-    #[Route('/cards', name: 'cards_index')]
+    #[Route('/', name: 'cards_index', methods: ['GET'])]
     public function index(CardsRepository $cardsRepository): Response
     {
         $cards = $cardsRepository->findAll();
@@ -19,21 +19,17 @@ class CardsController extends AbstractController
         ]);
     }
 
-    #[Route('/cards/{id}', name: 'card_show')]
+    #[Route('/{id}', name: 'card_show', methods: ['GET'])]
     public function show(int $id, CardsRepository $cardsRepository): Response
     {
-        // Récupérer la carte spécifique par son ID
         $card = $cardsRepository->find($id);
 
-        // Si la carte n'existe pas, afficher une erreur 404
         if (!$card) {
             throw $this->createNotFoundException('La carte demandée n\'existe pas.');
         }
 
-        // Retourner la vue Twig avec les détails de la carte et le pack associé
         return $this->render('cards/show.html.twig', [
             'card' => $card,
-            'pack' => $card->getPack(),
         ]);
     }
 }

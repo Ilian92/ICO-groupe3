@@ -29,7 +29,6 @@
 
 <div class="w-full relative margin-container">
 <h2>Cartes dans ce pack</h2>
-<h2>Cartes dans ce pack</h2>
 <div class="centered-slide-carousel swiper-container relative swiper-initialized swiper-horizontal swiper-backface-hidden">
 <div class="swiper-wrapper" id="swiper-wrapper-36e9daca654d311c" aria-live="polite">
 
@@ -42,7 +41,7 @@
             <div class="bg-indigo-50 rounded-2xl h-96 flex justify-center items-center">
                 <span class="text-3xl font-semibold text-indigo-600">
                     <a href="{{ path('card_show', { id: card.id }) }}">
-                        <img src="/{{ card.image }}" alt="{{ card.name }}" />
+                        <img src="{{ card.image }}" alt="{{ card.name }}" />
                     </a>
                 </span>
             </div>
@@ -57,36 +56,6 @@
 </div>
 
 <script>
-var swiper = new Swiper(".centered-slide-carousel", {
-	centeredSlides: true,
-	paginationClickable: true,
-	loop: true,
-	spaceBetween: 30,
-	slideToClickedSlide: true,
-	pagination: {
-		el: ".centered-slide-carousel .swiper-pagination",
-		clickable: true,
-	},
-	breakpoints: {
-		1920: {
-			slidesPerView: 9,
-			spaceBetween: 30,
-		},
-		1028: {
-			slidesPerView: 6    ,
-			spaceBetween: 30,
-		},
-		990: {
-			slidesPerView: 4,
-			spaceBetween: 30,
-		},
-        		0: {
-			slidesPerView: 3,
-			spaceBetween: 10,
-		},
-	},
-});
-</script>
 var swiper = new Swiper(".centered-slide-carousel", {
 	centeredSlides: true,
 	paginationClickable: true,
