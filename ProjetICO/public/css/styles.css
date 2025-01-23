@@ -33,7 +33,8 @@ h2 {
     margin-bottom: 20px;
 }
 
-h3 {
+h3,
+.h3 {
     font-family: "Chaloops W00 Md Reg";
     font-size: 20px;
     line-height: 20px;
@@ -42,7 +43,8 @@ h3 {
 
 p,
 nav.menu ul li a,
-.btn-ico {
+.btn-ico,
+a {
     font-family: "Filson Pro";
     font-size: 16px;
     line-height: 16px;
@@ -68,25 +70,42 @@ p:last-child {
 .btn-ico.btn-ico-beige {
     background-color: var(--beige);
     color: var(--bleu-royal);
-    border: 1px solid var(--beige);
+    border: 2px solid var(--beige);
 }
 
 .btn-ico.btn-ico-beige:hover {
     background-color: transparent;
     color: var(--beige);
-    border: 1px solid var(--beige);
+    border: 2px solid var(--beige);
 }
 
 .btn-ico.btn-ico-rouge {
     background-color: var(--rouge-corail);
     color: var(--beige);
-    border: 1px solid var(--rouge-corail);
+    border: 2px solid var(--rouge-corail);
 }
 
 .btn-ico.btn-ico-rouge:hover {
+    background-color: var(--beige);
+    color: var(--noir);
+    border: 2px solid var(--rouge-corail);
+}
+
+.btn-ico.btn-ico-rouge.bg-white:hover {
+    color: var(--noir);
     background-color: transparent;
-    color: var(--beige);
-    border: 1px solid var(--rouge-corail);
+}
+
+.btn-ico.btn-ico-vert {
+    background-color: var(--vert-pomme);
+    color: var(--noir);
+    border: 2px solid var(--vert-pomme);
+}
+
+.btn-ico.btn-ico-vert:hover {
+    background-color: transparent;
+    color: var(--noir);
+    border: 2px solid var(--vert-pomme);
 }
 
 .badge-ico {
@@ -118,6 +137,10 @@ nav.menu {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.mx-auto {
+    margin: auto;
 }
 
 ol {
