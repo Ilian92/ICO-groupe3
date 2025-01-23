@@ -28,6 +28,7 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Email',
                     'class' => 'form-input',
                 ],
+                'error_bubbling' => true,
             ])
             ->add('password', PasswordType::class, [
                 'label' => 'Mot de passe',
@@ -40,6 +41,7 @@ class RegistrationFormType extends AbstractType
                     'pattern' => '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$',
                     'title' => 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial (#?!@$ %^&*-)',
                 ],
+                'error_bubbling' => true,
             ])
             ->add('first_name', TextType::class, [
                 'label' => 'Prénom',
@@ -50,6 +52,7 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Prénom',
                     'class' => 'form-input',
                 ],
+                'error_bubbling' => true,
             ])
             ->add('last_name', TextType::class, [
                 'label' => 'Nom',
@@ -60,6 +63,7 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Nom',
                     'class' => 'form-input',
                 ],
+                'error_bubbling' => true,
             ])
             ->add('address', TextType::class, [
                 'label' => 'Adresse',
@@ -71,6 +75,7 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Adresse (optionnel)',
                     'class' => 'form-input',
                 ],
+                'error_bubbling' => true,
             ]);
     }
 

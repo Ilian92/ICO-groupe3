@@ -27,6 +27,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 72)]
     #[Assert\NotBlank]
+    #[Assert\Regex(
+        pattern: '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/',
+        message: 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial (#?!@$ %^&*-)'
+    )]
     private ?string $password = null;
 
     #[ORM\Column(length: 100)]
