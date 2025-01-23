@@ -2,6 +2,7 @@ h1{
     text-align: center;
     margin: 0;
     padding: 1em;
+    text-transform: uppercase;
 }
 
 .margin-container h2{

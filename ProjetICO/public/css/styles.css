@@ -204,6 +204,7 @@ footer .menu-footer ul {
 
 .news-item, .events-item {
 	display: flex;
+    padding: 2em;
 	gap: 2em;
 }
 
@@ -216,6 +217,7 @@ footer .menu-footer ul {
 	width: auto;
 	aspect-ratio: 1/1;
 	object-fit: cover;
+    max-width: fit-content;
 }
 
 /*-------------- Cards --------------*/
