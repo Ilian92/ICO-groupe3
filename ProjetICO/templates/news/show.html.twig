@@ -3,9 +3,11 @@
 {% block title %}Détails du pack : {{ singleNews.title }}{% endblock %}
 
 {% block body %}
-<h1>{{ singleNews.title }}</h1>
-<p>Publié le {{ singleNews.createdAt|date('d/m/Y') }} à {{ singleNews.createdAt|date('H:i') }}</p>
-<img src="{{ singleNews.image }}" alt="{{ singleNews.title }}" />
-<p>{{ singleNews.content|nl2br }}</p>
-
+    <header class="precise-news-container">
+        <h1>{{ singleNews.title }}</h1>
+        <p class="precise-news-date">Publié le {{ singleNews.createdAt|date('d/m/Y') }} à {{ singleNews.createdAt|date('H:i') }}</p>
+        <div class="precise-news-image-container"><img src="{{ singleNews.image }}" alt="{{ singleNews.title }}" /></div>
+    </header>
+    <p class="precise-news-content">{{ singleNews.content|nl2br }}</p>
+    
 {% endblock %}
