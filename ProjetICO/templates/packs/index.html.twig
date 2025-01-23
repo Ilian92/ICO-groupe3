@@ -11,7 +11,7 @@
 {% if packs is empty %}
     <p>Aucun article n'est à vendre.</p>
 {% else %}
-    <div class="packs">
+    <div class="packs container">
         {% for item in packs %}
             <article class="packs-item">
                 <h2><a href="{{ path('product_show', {'id': item.id}) }}">{{ item.name }}</a></h2>
