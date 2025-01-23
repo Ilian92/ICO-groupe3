@@ -1,12 +1,17 @@
 {# templates/packs/new.html.twig #}
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
 {% block title %}New Pack{% endblock %}
 
 {% block body %}
+<div class="dashboard_container">
+
     <h1>Create new Pack</h1>
 
     {{ include('packs/_form.html.twig') }}
 
-    <a href="{{ path('admin_packs_index') }}">back to list</a>
+    <a class="admin_button" href="{{ path('admin_packs_index') }}">back to list</a>
+    </div>
 {% endblock %}

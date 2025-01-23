@@ -2,6 +2,10 @@
 
 {% block title %}News index{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
+
 {% block body %}
     <h1>News index</h1>
 
@@ -43,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_news_new') }}">Create new</a>
+    <a class="admin_button" href="{{ path('admin_news_new') }}">Create new</a>
 {% endblock %}
