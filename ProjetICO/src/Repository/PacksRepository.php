@@ -36,6 +36,16 @@ class PacksRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function countCardsInPack(int $packId): int
+    {
+        return $this->createQueryBuilder('p')
+            ->select('COUNT(c.id)')
+            ->leftJoin('p.cards', 'c')
+            ->where('p.id = :packId')
+            ->setParameter('packId', $packId)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 //    /**
 //     * @return Packs[] Returns an array of Packs objects
 //     */

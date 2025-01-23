@@ -60,6 +60,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         $this->orders = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
         $this->is_verified = false;
+        $this->roles = ['ROLE_USER'];
     }
 
     public function getId(): ?int

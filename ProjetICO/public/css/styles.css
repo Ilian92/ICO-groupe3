@@ -210,6 +210,21 @@ footer .menu-footer ul {
 
 .packs-item {
 	padding: 1em;
+    background: url("../assets/white-background.svg");
+    border-radius: 1em;
+    margin: 1em;
+}
+
+.packs-item h2{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.packs-item a{
+    width: 100%;
+    display: block;
+    padding-bottom: 1em;
 }
 
 .packs-item a,
@@ -224,6 +239,7 @@ footer .menu-footer ul {
 	aspect-ratio: 1/1;
 	height: auto;
 	object-fit: cover;
+    border-radius: 0.5em;
 }
 
 /*-------------- Individual Pack --------------*/
@@ -298,5 +314,11 @@ text-align: center;
 		width: 100%;
 		max-width: 500px;
 		margin: auto;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.card-detail {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }

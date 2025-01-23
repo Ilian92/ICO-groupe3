@@ -8,51 +8,34 @@
 {% endblock %}
 
 {% block body %}
+<section class="register-body">
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1 class="register-title">Rejoignez l'aventure ICO !</h1>
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
+        <h2 class="register-subtitle">Créez votre compte</h2>
         {{ form_row(registrationForm.first_name) }}
         {{ form_row(registrationForm.last_name) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.password) }}
         {{ form_row(registrationForm.address) }}
-
-        <button type="submit" class="btn">Register</button>
+        <div class="btn-container">
+            <button type="submit" class="btn">S'inscrire</button>
+        </div>
+        <p class="login-link">Déjà inscrit ? <a href="{{ path('app_login') }}">Connectez-vous</a></p>
     {{ form_end(registrationForm) }}
+
+{# premier bouton de logout, celui-là est nul #}
+ {# <form action="/logout" method="post">
+    <button type="submit">Log Out</button>
+</form> #}
+
+{# deuxième bouton de logout, celui-là est mieux, on utilise pas l'autre #}
+{# <a href="{{ path('app_logout') }}">Log Out</a> #}
+</section>
 {% endblock %}
-
-{# test #}
-
-{# {% extends 'base.html.twig' %}
-
-{% block title %}Créer un utilisateur{% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-{% endblock %}
-
-{% block body %}
-    <h1>Créer un utilisateur</h1>
-
-{% if errorMessage is not empty %}
-    <div class="form-errors">
-        <ul>
-            {% for error in errorMessage %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-{% endif %}
-
-    {{ form_start(form, {'attr': {'class': 'form-container'}}) }}
-        {{ form_widget(form, {'attr': {'class': 'form-input'}}) }}
-        <button type="submit">Créer</button>
-    {{ form_end(form) }}
-{% endblock %} #}

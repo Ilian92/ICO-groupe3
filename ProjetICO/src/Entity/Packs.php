@@ -122,7 +122,7 @@ class Packs
     {
         if (!$this->cards->contains($card)) {
             $this->cards->add($card);
-            $card->setPackId($this);
+            $card->setPack($this);
         }
 
         return $this;
@@ -131,8 +131,8 @@ class Packs
     public function removeCard(Cards $card): static
     {
         if ($this->cards->removeElement($card)) {
-            if ($card->getPackId() === $this) {
-                $card->setPackId(null);
+            if ($card->getPack() === $this) {
+                $card->setPack(null);
             }
         }
 
