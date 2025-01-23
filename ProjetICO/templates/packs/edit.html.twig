@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
+
 {% block title %}Edit Packs{% endblock %}
 
 {% block body %}
+<div class="dashboard_container">
+
     <h1>Edit Packs</h1>
 
     {{ include('packs/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('admin_packs_index') }}">back to list</a>
+    <a class="admin_button" href="{{ path('admin_packs_index') }}">back to list</a>
 
     {{ include('packs/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

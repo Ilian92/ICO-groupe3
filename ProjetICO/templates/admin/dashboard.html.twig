@@ -3,15 +3,20 @@
 
 {% block title %}Admin Dashboard{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
+
 {% block body %}
+<div class="dashboard_container">
     <h1>Admin Dashboard</h1>
     <p>Bienvenue dans l'interface d'administration.</p>
 
-    <a href="{{ path('admin_news_index') }}">Manage news and events</a>
+    <a class="admin_button" href="{{ path('admin_news_index') }}">Manage news and events</a>
     <br>
-    <a href="{{ path('admin_packs_index') }}">Manage packs</a>
+    <a class="admin_button" href="{{ path('admin_packs_index') }}">Manage packs</a>
     <br>
-        <a href="{{ path('admin_cards_index') }}">Manage cards</a>
-
+    <a class="admin_button" href="{{ path('admin_cards_index') }}">Manage cards</a>
+</div>
 
 {% endblock %}

@@ -1,0 +1,92 @@
+.admin_button {
+    display: inline-block;
+    background-color: #3b60bc;
+    border: none;
+    color: white;
+    width: 268px;
+    padding: 11px;
+    border-radius: 12px;
+    font-family: "Filson Pro";
+    text-decoration: none;
+    margin: 30px;
+}
+.inner-body{
+    margin: 100px 20px 20px;
+    text-align:center;
+}
+
+td{
+    padding: 5px;
+    border:1px solid black;
+    gap: 0px;
+}
+table{
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.dashboard_container{
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 20px;
+    background: url(../assets/white-background.svg);
+    border-radius: 30px;
+    text-align: center;
+}
+.btn{
+    display: inline-block;
+    background-color: #3b60bc;
+    border: none;
+    color: white;
+    width: 268px;
+    padding: 11px;
+    border-radius: 12px;
+    font-family: "Filson Pro";
+    text-decoration: none;
+    margin: 30px;
+}
+
+#news div{
+    font-family: "Filson Pro";
+    text-align: center;
+    display: grid;
+}
+#news div label{
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+#news div input{
+    margin: 20px auto;
+}
+#packs div{
+    font-family: "Filson Pro";
+    text-align: center;
+    display: grid;
+}
+#packs div label{
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+#packs div input{
+    margin: 20px auto;
+}
+#cards div{
+    font-family: "Filson Pro";
+    text-align: center;
+    display: grid;
+}
+#cards div label{
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+#cards div input{
+    margin: 20px auto;
+}
