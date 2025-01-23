@@ -16,6 +16,7 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class RegistrationController extends AbstractController
 {
@@ -27,6 +28,10 @@ class RegistrationController extends AbstractController
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('home');
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var string $plainPassword */
