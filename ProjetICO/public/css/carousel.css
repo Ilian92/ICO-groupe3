@@ -18,3 +18,7 @@
 .margin-container{
     margin: 2em 0;
 }
+
+.centered-slide-carousel{
+    overflow-x: clip;
+}
