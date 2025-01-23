@@ -230,6 +230,10 @@ footer .menu-footer ul {
     display: flex;
     padding: 2em;
     gap: 2em;
+    background-color: var(--bleu-royal);
+    border-radius: 15px;
+    max-height: 264px;
+    margin: 30px 20px;
 }
 
 .news-item > div,
@@ -244,6 +248,41 @@ footer .menu-footer ul {
     aspect-ratio: 1/1;
     object-fit: cover;
     max-width: fit-content;
+}
+
+.news-container a {
+    text-decoration: none;
+}
+
+.news-item h2 {
+    color: white;
+}
+
+.news-date {
+    color: black;
+    font-size: 14px;
+}
+
+.news-content {
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 1180px;
+}
+
+.news-all-text {
+    margin: auto 0;
+}
+
+.news-image {
+    object-fit: contain;
+}
+
+.news-title {
+    text-align: center;
+    padding-top: 40px;
+    margin-bottom: 60px;
 }
 
 /*-------------- Cards --------------*/
@@ -289,19 +328,17 @@ footer .menu-footer ul {
     }
 }
 
-
-
-#user div{
+#user div {
     font-family: "Filson Pro";
     text-align: center;
     display: grid;
 }
-#user div label{
+#user div label {
     font-family: "Chaloops W00 Md Reg";
     font-size: 20px;
     line-height: 20px;
     font-weight: 500;
 }
-#user div input{
+#user div input {
     margin: 20px auto;
 }
