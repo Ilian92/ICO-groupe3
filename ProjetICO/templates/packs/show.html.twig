@@ -31,7 +31,7 @@
 <div class="swiper-wrapper" id="swiper-wrapper-36e9daca654d311c" aria-live="polite">
 
     {% for card in cards %}
-        <div class="swiper-slide" 
+        <div class="swiper-slide"
              role="group" 
              aria-label="{{ loop.index }} / {{ cardCount }}" 
              data-swiper-slide-index="{{ loop.index0 }}">
@@ -53,30 +53,34 @@
 </div>
 
 <script>
-			var swiper = new Swiper(".centered-slide-carousel", {
-				centeredSlides: true,
-				paginationClickable: true,
-				loop: true,
-				spaceBetween: 30,
-				slideToClickedSlide: true,
-				pagination: {
-					el: ".centered-slide-carousel .swiper-pagination",
-					clickable: true,
-				},
-				breakpoints: {
-					1920: {
-						slidesPerView: 4,
-						spaceBetween: 30,
-					},
-					1028: {
-						slidesPerView: 6,
-						spaceBetween: 10,
-					},
-					990: {
-						slidesPerView: 1,
-						spaceBetween: 0,
-					},
-				},
-			});
-		</script>
+var swiper = new Swiper(".centered-slide-carousel", {
+	centeredSlides: true,
+	paginationClickable: true,
+	loop: true,
+	spaceBetween: 30,
+	slideToClickedSlide: true,
+	pagination: {
+		el: ".centered-slide-carousel .swiper-pagination",
+		clickable: true,
+	},
+	breakpoints: {
+		1920: {
+			slidesPerView: 9,
+			spaceBetween: 30,
+		},
+		1028: {
+			slidesPerView: 6    ,
+			spaceBetween: 30,
+		},
+		990: {
+			slidesPerView: 4,
+			spaceBetween: 30,
+		},
+        		0: {
+			slidesPerView: 3,
+			spaceBetween: 10,
+		},
+	},
+});
+</script>
 {% endblock %}

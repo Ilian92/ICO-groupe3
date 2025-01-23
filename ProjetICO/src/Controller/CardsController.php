@@ -33,7 +33,7 @@ class CardsController extends AbstractController
         // Retourner la vue Twig avec les détails de la carte et le pack associé
         return $this->render('cards/show.html.twig', [
             'card' => $card,
-            'pack' => $card->getPackId(),
+            'pack' => $card->getPack(),
         ]);
     }
 }

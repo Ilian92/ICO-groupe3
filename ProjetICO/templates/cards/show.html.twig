@@ -9,6 +9,7 @@
         <h1>{{ card.name }}</h1>
         <p>{{ card.description }}</p>
         <p><strong>Type :</strong> {{ card.typeId.name }}</p>
+        <p><strong>Quantité :</strong> {{ card.quantity }}</p>
     </div>
 </article>
 <a href="{{ path('packs_show', { id: pack.id }) }}">Retour au pack : {{ pack.name }}</a>
