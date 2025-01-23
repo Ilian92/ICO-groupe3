@@ -308,6 +308,44 @@ footer .menu-footer ul {
     margin-bottom: 60px;
 }
 
+/*-------------- Precise News --------------*/
+
+.precise-news-container {
+    background-image: url(../assets/bg/carte.svg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0 100px;
+    mask-image: linear-gradient(to bottom, black 400px, rgba(0, 0, 0, 0));
+    mask-repeat: no-repeat;
+    & h1 {
+        text-align: center;
+    }
+}
+
+.precise-news-date {
+    text-align: end;
+    color: black;
+    font-weight: bold;
+    padding-right: 15px;
+}
+
+.precise-news-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    & img {
+        max-width: 400px;
+    }
+}
+
+.precise-news-content {
+    padding: 70px 50px;
+    text-align: left;
+    min-height: 50vh;
+    line-height: 1.5em;
+}
+
 /*-------------- Cards --------------*/
 
 .cards-list {
@@ -350,8 +388,6 @@ footer .menu-footer ul {
         grid-template-columns: repeat(1, 1fr);
     }
 }
-
-
 
 #user div {
     font-family: "Filson Pro";
