@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Card{% endblock %}
+
+{% block body %}
+    <h1>Create new Card</h1>
+
+    {{ include('cards/_form.html.twig', {'button_label': 'Create'}) }}
+
+    <a href="{{ path('admin_cards_index') }}">back to list</a>
+{% endblock %}

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use App\Repository\CardTypeRepository;
@@ -18,16 +17,14 @@ class CardType
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
-    /**
-     * @var Collection<int, Cards>
-     */
-    #[ORM\OneToMany(targetEntity: Cards::class, mappedBy: 'type_id')]
+    #[ORM\OneToMany(mappedBy: 'type', targetEntity: Cards::class)]
     private Collection $cards;
 
     public function __construct()
     {
         $this->cards = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -39,7 +36,7 @@ class CardType
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -54,22 +51,22 @@ class CardType
         return $this->cards;
     }
 
-    public function addCard(Cards $card): static
+    public function addCard(Cards $card): self
     {
         if (!$this->cards->contains($card)) {
-            $this->cards->add($card);
-            $card->setTypeId($this);
+            $this->cards[] = $card;
+            $card->setType($this);
         }
 
         return $this;
     }
 
-    public function removeCard(Cards $card): static
+    public function removeCard(Cards $card): self
     {
         if ($this->cards->removeElement($card)) {
             // set the owning side to null (unless already changed)
-            if ($card->getTypeId() === $this) {
-                $card->setTypeId(null);
+            if ($card->getType() === $this) {
+                $card->setType(null);
             }
         }
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use App\Repository\CardsRepository;
@@ -82,19 +81,19 @@ class Cards
 
     public function setPack(?Packs $pack): static
     {
-        $this->pack = $pack;
+        $this->pack_id = $pack;
 
         return $this;
     }
 
-    public function getTypeId(): ?CardType
+    public function getType(): ?CardType
     {
         return $this->type_id;
     }
 
-    public function setTypeId(?CardType $type_id): static
+    public function setType(?CardType $type): static
     {
-        $this->type_id = $type_id;
+        $this->type_id = $type;
 
         return $this;
     }

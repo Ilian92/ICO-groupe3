@@ -1,10 +1,13 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Cards;
 use App\Entity\News;
 use App\Entity\Packs;
+use App\Form\CardsType;
 use App\Form\NewsType;
 use App\Form\PacksType;
+use App\Repository\CardsRepository;
 use App\Repository\NewsRepository;
 use App\Repository\PacksRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -152,5 +155,71 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_packs_index', [], Response::HTTP_SEE_OTHER);
+    }
+    
+
+    #[Route('/cards', name: 'admin_cards_index', methods: ['GET'])]
+    public function indexCards(CardsRepository $cardsRepository): Response
+    {
+        return $this->render('cards/admin_index.html.twig', [
+            'cards' => $cardsRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/cards/new', name: 'admin_cards_new', methods: ['GET', 'POST'])]
+    public function newCards(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $card = new Cards();
+        $form = $this->createForm(CardsType::class, $card);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($card);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_cards_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('cards/new.html.twig', [
+            'card' => $card,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/cards/{id}', name: 'admin_cards_show', methods: ['GET'])]
+    public function showCards(Cards $card): Response
+    {
+        return $this->render('cards/show.html.twig', [
+            'card' => $card,
+        ]);
+    }
+
+    #[Route('/cards/{id}/edit', name: 'admin_cards_edit', methods: ['GET', 'POST'])]
+    public function editCards(Request $request, Cards $card, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(CardsType::class, $card);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_cards_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('cards/edit.html.twig', [
+            'card' => $card,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/cards/{id}', name: 'admin_cards_delete', methods: ['POST'])]
+    public function deleteCards(Request $request, Cards $card, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$card->getId(), $request->get('_token'))) {
+            $entityManager->remove($card);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin_cards_index', [], Response::HTTP_SEE_OTHER);
     }
 }
