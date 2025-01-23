@@ -18,8 +18,14 @@
             </a>
             <ul class="dropdown-menu">
                 <div class="dropdown-menu-inner">
+                {% if app.user == false %}
                     <li><a href="{{ path('register') }}">Inscription</a></li>
                     <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                {% endif %}
+                {% if app.user %}
+                    <li><a href="{{ path('user_account') }}">Profil</a></li>
+                    <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                {% endif %}
                 </div>
             </ul>
         </li>
