@@ -56,7 +56,7 @@ class AdminController extends AbstractController
     #[Route('/news/{id}', name: 'admin_news_show', methods: ['GET'])]
     public function showNews(News $news): Response
     {
-        return $this->render('news/show.html.twig', [
+        return $this->render('news/admin_show.html.twig', [
             'news' => $news,
         ]);
     }

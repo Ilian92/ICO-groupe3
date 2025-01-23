@@ -29,7 +29,7 @@ class NewsController extends AbstractController
         }
 
         return $this->render('news/show.html.twig', [
-            'news' => $news,
+            'singleNews' => $news,
         ]);
     }
 
