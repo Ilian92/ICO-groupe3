@@ -4,7 +4,7 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 200px 0;
+    padding: 150px 0 200px;
     mask-image: linear-gradient(to bottom, black 400px, rgba(0, 0, 0, 0));
     mask-repeat: no-repeat;
 }
@@ -32,23 +32,109 @@
     width: 30px;
 }
 
-.ico .img-cards {
+.ico {
+    text-align: center;
+}
+
+.ico .img-cards .card-but-ico {
+    max-width: 80%;
+    padding: 20px 50px;
+    background-image: url(/assets/white-background.svg);
+    background-repeat: no-repeat;
     display: flex;
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    border-radius: 20px;
+    min-height: 320px;
+}
+
+.ico .img-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 80%;
+    margin: auto;
+    margin-top: 50px;
 }
 
 .event-news-container {
     padding: 100px 0;
 }
 
-.event-news-container .event-news {
-    display: flex;
-    justify-content: space-between;
-    gap: 100px;
-    max-width: 80%;
-    margin: auto;
-}
-
 .download .grid-download {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.card-event-news {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.event.card-event-news {
+    flex-direction: row-reverse;
+}
+
+.card-event-news img {
+    max-width: 25%;
+}
+
+.card-event-news .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-event-news .badge-ico {
+    margin-bottom: 20px;
+}
+
+.card-event-news {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    background-image: url(/assets/white-background.svg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+
+.event.card-event-news {
+    position: relative;
+    overflow: hidden;
+}
+
+.event.card-event-news::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/white-background.svg);
+    background-size: cover;
+    background-position: center;
+    transform: rotate(180deg);
+    z-index: -1;
+}
+
+.event-news {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.img-clipped {
+    width: 100%;
+    height: 100%;
+    clip-path: url(/assets/white-background.svg);
+    overflow: hidden;
+}
+
+.img-clipped img {
+    max-width: 30%;
+    height: 100%;
+    object-fit: cover;
 }

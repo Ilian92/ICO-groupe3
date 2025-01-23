@@ -1,5 +1,4 @@
 <?php
-// filepath: /c:/Users/morga/OneDrive/Documents/EEMI/3ème année/-- WORKSHOP ICO/ICO-groupe3/ProjetICO/src/Controller/RulesController.php
 namespace App\Controller;
 
 use App\Repository\RulesRepository;

@@ -5,6 +5,7 @@
     --violet-amethyste: #7F3CBA;
     --vert-pomme: #46CC4F;
     --jaune-moutarde: #FBC434;
+    --clear-grey: #F9F9F9;
 }
 
 * {
@@ -86,6 +87,27 @@ p:last-child {
     background-color: transparent;
     color: var(--beige);
     border: 1px solid var(--rouge-corail);
+}
+
+.badge-ico {
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+    max-width: max-content;
+}
+
+.badge-ico.badge-vert-pomme {
+    background-color: var(--vert-pomme);
+}
+
+.badge-ico.badge-rouge-corail {
+    background-color: var(--rouge-corail);
+    color: var(--beige);
+}
+
+.badge-ico.badge-jaune-moutarde {
+    background-color: var(--jaune-moutarde);
 }
 
 .text-center {

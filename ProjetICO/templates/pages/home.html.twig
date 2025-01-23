@@ -1,4 +1,3 @@
-{# templates/pages/home.html.twig #}
 {% extends 'base.html.twig' %}
 {% block title %}Page d'accueil{% endblock %}
 
@@ -9,17 +8,17 @@
 {% block body %}
     <section class="header">
         <div class="header-content">
-            <img src="{{ asset('images/header-perso.svg') }}" alt="image d'un pirate, d'une sirène et d'un marin">
+            <img src="{{ asset('assets/header-perso.svg') }}" alt="image d'un pirate, d'une sirène et d'un marin">
             <div class="header-content-text">
-                <h1>Projet ICO</h1>
-                <p>Un jeu de société pour les petits et les grands</p>
+                <h1>ICO</h1>
+                <h2>Un jeu de société pour les petits et les grands</h2>
                 <div class="info">
                     <div>
-                        <img src="{{ asset('images/icons/icon-badge.svg') }}" alt="icon d'un badge">
+                        <img src="{{ asset('assets/icons/icon-badge.svg') }}" alt="icon d'un badge">
                         <p>7 - 20 personnes</p>
                     </div>
                     <div>
-                        <img src="{{ asset('images/icons/icon-marin.svg') }}" alt="icon d'une ancre">
+                        <img src="{{ asset('assets/icons/icon-marin.svg') }}" alt="icon d'une ancre">
                         <p>10 ans et +</p>
                     </div>
                 </div>
@@ -28,28 +27,68 @@
     </section>
     <section class="ico container">
         <h2>Qu'est ce que ICO ?</h2>
-        <p>section pour présenter le jeu</p>
-        <p>une rapide explication des mécaniques et spécificités du jeu</p>
+        <p>ICO est un jeu de société numérique où <strong>pirates</strong>, <strong>marins</strong> et <strong>sirènes</strong> s'affrontent pour le contrôle d’un trésor en mer.</p>
         <div class="img-cards">
-            <img src="{{ asset('images/cards/marin.png') }}" alt="image de la carte du marin">
-            <img src="{{ asset('images/cards/pirate.png') }}" alt="image de la carte du pirate">
-            <img src="{{ asset('images/cards/sirene.png') }}" alt="image de la carte de la sirène">
+            {% for but in rules %}
+                {% if but.section == 'but-card' %}
+                    {% if but.title == 'marins' %}
+                        <div class="but-marin card-but-ico">
+                            <img src="{{ asset('assets/cards/marin.png') }}" alt="image de la carte du marin">
+                            <p>{{ but.content }}</p>
+                        </div>
+                    {% endif %}
+                    {% if but.title == 'pirates' %}
+                        <div class="but-pirate card-but-ico">
+                            <img src="{{ asset('assets/cards/pirate.png') }}" alt="image de la carte du pirate">
+                            <p>{{ but.content }}</p>
+                        </div>
+                    {% endif %}
+                    {% if but.title == 'sirene' %}
+                        <div class="but-sirene card-but-ico">
+                            <img src="{{ asset('assets/cards/sirene.png') }}" alt="image de la carte de la sirene">
+                            <p>{{ but.content }}</p>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
         </div>
-        <p>mettre plus de photo des cartes et du paquet de jeu</p>
     </section>
+
+
     <section class="container event-news-container">
+        {{dump()}}
+
         <h2>Événements et news</h2>
         <div class="event-news">
-            <div class="event">
-                <p>card pour le prochains events</p>
-                <p>bouton pour voir plus d'évènements</p>
+            <div class="news card-event-news">
+                {% if latestNews %}
+                    <img src="{{ latestNews.image }}" alt="">
+                    <div class="content">
+                        <p class="badge-ico badge-rouge-corail">News</p>
+                        <h3>{{ latestNews.title }}</h3>
+                        <p>{{ latestNews.content }}</p>
+                    </div>
+                {% else %}
+                    <p>Aucune news disponible.</p>
+                {% endif %}            
             </div>
-            <div class="news">
-                <p>card de la dernière news sortie</p>
-                <p>bouton pour voir toutes les news</p>
+            <div class="event card-event-news">
+                {% if latestEvent %}
+                    <img src="{{ latestEvent.image }}" alt="">
+                    <div class="content">
+                        <p class="badge-ico badge-vert-pomme">Event</p>
+                        <h3>{{ latestEvent.title }}</h3>
+                        <p>{{ latestEvent.content }}</p>
+                    </div>
+                {% else %}
+                    <p>Aucun événement disponible.</p>
+                {% endif %}
             </div>
         </div>
     </section>
+
+
+
     <section class="download container">
         <h2>Téléchargement</h2>
         <div class="grid-download">
