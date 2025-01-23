@@ -20,50 +20,33 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Email',
-                'label_attr' => [
-                    'class' => 'form-label',
-                ],
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'exemple@mail.com',
+                    'placeholder' => 'Email',
                     'class' => 'form-input',
                 ],
             ])
             ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe',
-                'label_attr' => [
-                    'class' => 'form-label',
-                ],
                 'attr' => [
                     'placeholder' => 'Mot de passe',
                     'class' => 'form-input',
+                    'pattern' => '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$',
+                    'title' => 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial (#?!@$ %^&*-)',
                 ],
             ])
             ->add('first_name', TextType::class, [
-                'label' => 'Prénom',
-                'label_attr' => [
-                    'class' => 'form-label',
-                ],
                 'attr' => [
-                    'placeholder' => 'Jean',
+                    'placeholder' => 'Prénom',
                     'class' => 'form-input',
                 ],
             ])
             ->add('last_name', TextType::class, [
-                'label' => 'Nom',
-                'label_attr' => [
-                    'class' => 'form-label',
-                ],
                 'attr' => [
-                    'placeholder' => 'Dupont',
+                    'placeholder' => 'Nom',
                     'class' => 'form-input',
                 ],
             ])
             ->add('address', TextType::class, [
-                'label' => 'Adresse',
-                'label_attr' => [
-                    'class' => 'form-label',
-                ],
                 'attr' => [
                     'placeholder' => '1 rue de Paris 75000 Paris',
                     'class' => 'form-input',
