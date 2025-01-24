@@ -328,9 +328,10 @@ footer .menu-footer ul {
     margin-bottom: 60px;
 }
 
-/*-------------- Precise News --------------*/
+/*-------------- Precise News and Events --------------*/
 
-.precise-news-container {
+.precise-news-container,
+.precise-events-container {
     background-image: url(../assets/bg/carte.svg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -343,14 +344,16 @@ footer .menu-footer ul {
     }
 }
 
-.precise-news-date {
+.precise-news-date,
+.precise-events-date {
     text-align: end;
     color: black;
     font-weight: bold;
     padding-right: 15px;
 }
 
-.precise-news-image-container {
+.precise-news-image-container,
+.precise-events-image-container {
     display: flex;
     justify-content: center;
     margin: 20px 0;
@@ -359,7 +362,8 @@ footer .menu-footer ul {
     }
 }
 
-.precise-news-content {
+.precise-news-content,
+.precise-events-content {
     padding: 70px 50px;
     text-align: left;
     min-height: 50vh;
