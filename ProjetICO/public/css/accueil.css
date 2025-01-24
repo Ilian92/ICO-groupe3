@@ -51,7 +51,7 @@
     align-items: center;
     gap: 30px;
     border-radius: 20px;
-    min-height: 320px;
+    height: 100%;
     margin: auto;
 }
 
@@ -72,9 +72,8 @@
 }
 
 section.ico.container p {
-    max-width: 80%;
+    max-width: 90%;
     margin: auto;
-    margin-bottom: 10px;
 }
 
 .event-news-container {
@@ -103,6 +102,15 @@ section.ico.container p {
     flex-direction: column;
     gap: 10px;
     margin: auto;
+    width: 35%;
+}
+
+.card-event-news .content p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
 
 .card-event-news .badge-ico {

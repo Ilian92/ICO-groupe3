@@ -1,5 +1,5 @@
 {% block body %}
-    <h2>Distribution des cartes</h2>
+    <h2 class="text-center">Distribution des cartes</h2>
     <div class="counter-container">
         <div class="counter">
             <button id="decrease">-</button>
@@ -9,14 +9,14 @@
         
         <div class="distribution-container">
             <div class="distribution-header">
-                <img src="{{ asset('assets/icons/icon-marin.svg') }}" alt="icon d'un marin">
-                <img src="{{ asset('assets/icons/icon-pirate.svg') }}" alt="icon d'un pirate">
-                <img src="{{ asset('assets/icons/icon-sirene.svg') }}" alt="icon d'une sirène">
+                <img src="{{ asset('assets/illu/illu-marin.svg') }}" alt="image d'un marin">
+                <img src="{{ asset('assets/illu/illu-pirate.svg') }}" alt="image d'un pirate">
+                <img src="{{ asset('assets/illu/illu-sirene.svg') }}" alt="image d'une sirène">
             </div>
             <div class="distribution-row">
-                <div id="pirates">3</div>
-                <div id="marins">3</div>
-                <div id="sirene">1</div>
+                <p id="pirates">3</p>
+                <p id="marins">3</p>
+                <p id="sirene">1</p>
             </div>
         </div>    
     </div>

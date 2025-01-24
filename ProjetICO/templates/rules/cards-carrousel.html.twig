@@ -20,7 +20,7 @@
             <p class="card-description">{{ cards[0].description }}</p>
         </div>
         <div class="carousel-container">
-            <button class="arrow left">&#9664;</button>
+            <button class="arrow left"></button>
             <div class="carousel">
                 {% for i in 0..4 %}
                     {% for card in cards %}
@@ -39,7 +39,7 @@
                     {% endfor %}
                 {% endfor %}
             </div>
-            <button class="arrow right">&#9654;</button>
+            <button class="arrow right"></button>
         </div>
     </div>
 {% endblock %}
