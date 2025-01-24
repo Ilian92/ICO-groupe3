@@ -51,7 +51,7 @@
     align-items: center;
     gap: 30px;
     border-radius: 20px;
-    min-height: 320px;
+    height: 100%;
     margin: auto;
 }
 
@@ -72,9 +72,8 @@
 }
 
 section.ico.container p {
-    max-width: 80%;
+    max-width: 90%;
     margin: auto;
-    margin-bottom: 10px;
 }
 
 .event-news-container {

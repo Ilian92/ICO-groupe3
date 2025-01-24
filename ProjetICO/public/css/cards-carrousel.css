@@ -59,21 +59,26 @@
 
 .arrow {
     position: absolute;
-    bottom: -50%;
-    background: black;
-    color: white;
+    bottom: -70%;
+    background-image: url(../assets/icons/icon-marin.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(90deg);
+    height: 50px;
+    width: 50px;
     border: none;
-    padding: 10px;
     cursor: pointer;
     z-index: 10;
+    background-color: transparent;
 }
 
 .arrow.left {
-    left: 37%;
+    left: 39%;
 }
 
 .arrow.right {
-    right: 36%;
+    right: 38%;
+    transform: rotate(-90deg);
 }
 
 .name-badge {

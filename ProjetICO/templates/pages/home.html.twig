@@ -66,10 +66,10 @@
                 {% if latestNews %}
                     <img src="{{ latestNews.image }}" alt="">
                     <div class="content">
-                        <p class="badge-ico badge-rouge-corail">News</p>
+                        <p class="badge-ico badge-bleu-royal">News</p>
                         <a href="{{ path('news_show', {'id': latestNews.id}) }}" class="h3">{{ latestNews.title }}</a>
                         <p>{{ latestNews.content }}</p>
-                        <a class="btn-ico btn-ico-rouge bg-white" href="{{ path('news') }}">Plongez dans les archives</a>
+                        <a class="btn-ico btn-ico-bleu" href="{{ path('news') }}">Plongez dans les archives</a>
                     </div>
                 {% else %}
                     <p>Aucune news disponible.</p>
@@ -79,10 +79,10 @@
                 {% if latestEvent %}
                     <img src="{{ latestEvent.image }}" alt="">
                     <div class="content">
-                        <p class="badge-ico badge-vert-pomme">Event</p>
+                        <p class="badge-ico badge-rouge-corail">Event</p>
                         <a href="{{ path('events_show', {'id': latestEvent.id}) }}" class="h3">{{ latestEvent.title }}</a>
                         <p>{{ latestEvent.content }}</p>
-                        <a class="btn-ico btn-ico-vert" href="{{ path('events') }}">Participez aux prochaines batailles !</a>
+                        <a class="btn-ico btn-ico-rouge" href="{{ path('events') }}">Participez aux prochaines batailles !</a>
                     </div>
                 {% else %}
                     <p>Aucun événement disponible.</p>

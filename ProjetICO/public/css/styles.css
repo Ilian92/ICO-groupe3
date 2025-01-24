@@ -6,6 +6,7 @@
     --vert-pomme: #46cc4f;
     --jaune-moutarde: #fbc434;
     --clear-grey: #f9f9f9;
+    --noir: #000000;
 }
 
 * {
@@ -17,7 +18,10 @@ body {
     margin: 0;
 }
 
-h1 {
+h1,
+.distribution-row p,
+.counter-container span,
+.counter-container button {
     font-family: "Chaloops W00 Md Reg";
     font-size: 32px;
     line-height: 32px;
@@ -81,14 +85,26 @@ p:last-child {
 
 .btn-ico.btn-ico-rouge {
     background-color: var(--rouge-corail);
-    color: var(--beige);
+    color: var(--clear-grey);
     border: 2px solid var(--rouge-corail);
 }
 
 .btn-ico.btn-ico-rouge:hover {
-    background-color: var(--beige);
+    background-color: transparent;
     color: var(--noir);
     border: 2px solid var(--rouge-corail);
+}
+
+.btn-ico.btn-ico-bleu {
+    background-color: var(--bleu-royal);
+    color: var(--clear-grey);
+    border: 2px solid var(--bleu-royal);
+}
+
+.btn-ico.btn-ico-bleu:hover {
+    background-color: transparent;
+    color: var(--noir);
+    border: 2px solid var(--bleu-royal);
 }
 
 .btn-ico.btn-ico-rouge.bg-white:hover {
@@ -122,7 +138,12 @@ p:last-child {
 
 .badge-ico.badge-rouge-corail {
     background-color: var(--rouge-corail);
-    color: var(--beige);
+    color: var(--clear-grey);
+}
+
+.badge-ico.badge-bleu-royal {
+    background-color: var(--bleu-royal);
+    color: var(--clear-grey);
 }
 
 .badge-ico.badge-jaune-moutarde {
