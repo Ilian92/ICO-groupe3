@@ -6,10 +6,11 @@
 3. `composer install`
 4. `symfony serve`
 5. `php bin/console doctrine:database:create`
-6. `php bin/console doctrine:migrations:migrate`
-7. se connecter sur `http://localhost/phpmyadmin`
-8. importer le fichier ico.sql depuis PhpMyAdmin
-9. aller sur `http://localhost:8000`
+6. `php bin/console doctrine:migrations:diff`
+7. `php bin/console doctrine:migrations:migrate`
+8. se connecter sur `http://localhost/phpmyadmin`
+9. importer le fichier ico.sql depuis PhpMyAdmin
+10. aller sur `http://localhost:8000`
 
 ## Liens du projet:
 - [Kanban](https://github.com/users/Ilian92/projects/3/views/1)
