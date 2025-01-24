@@ -11,7 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PacksRepository; // Import du repository Pack
 use Symfony\Component\HttpFoundation\Response; // Corrige la classe Response
 
-
 class PaymentController extends AbstractController
 {
     #[Route('/create-checkout-session', name: 'create_checkout_session', methods: ['POST'])]
@@ -34,8 +33,8 @@ class PaymentController extends AbstractController
 
         $successUrl = $this->generateUrl('success_url', [], \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL);
         $cancelUrl = $this->generateUrl('cancel_url', [], \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL);
-        
-        
+
+
         // Créez une session de paiement (ne sera pas atteint si dd est utilisé)
         $checkoutSession = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
@@ -50,13 +49,20 @@ class PaymentController extends AbstractController
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
+            'metadata' => [
+                'pack_id' => $packId,
+                'user_id' => $this->getUser()->getId(),
+            ],
             'success_url' => $successUrl,
             'cancel_url' => $cancelUrl,
+            'customer_email' => $this->getUser()->getEmail(), // Si l'utilisateur est connecté
+            'shipping_address_collection' => [ // Collecte l'adresse de livraison
+                'allowed_countries' => ['FR', 'US', 'CA'] // Liste des pays autorisés
+            ],
         ]);
 
         return new JsonResponse(['id' => $checkoutSession->id]);
     }
-
 
     #[Route('/success', name: 'success_url')]
     public function success(): Response
