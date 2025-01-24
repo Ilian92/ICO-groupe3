@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+{% endblock %}
+
+{% block body %}
+<section class="register-body">
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1 class="register-title">Rejoignez l'aventure ICO !</h1>
+
+
+    {{ form_start(registrationForm) }}
+        <h2 class="register-subtitle">Créez votre compte</h2>
+        <div class="errors">
+            {{ form_errors(registrationForm, {attr: {class: "errors"}}) }}
+        </div>
+        {{ form_row(registrationForm.first_name) }}
+        {{ form_row(registrationForm.last_name) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.password) }}
+        {{ form_row(registrationForm.address) }}
+        <div class="btn-container">
+            <button type="submit" class="btn">S'inscrire</button>
+        </div>
+        <p class="login-link">Déjà inscrit ? <a href="{{ path('app_login') }}">Connectez-vous</a></p>
+    {{ form_end(registrationForm) }}
+
+{# premier bouton de logout, celui-là est nul #}
+ {# <form action="/logout" method="post">
+    <button type="submit">Log Out</button>
+</form> #}
+
+{# deuxième bouton de logout, celui-là est mieux, on utilise pas l'autre #}
+{# <a href="{{ path('app_logout') }}">Log Out</a> #}
+</section>
+{% endblock %}

@@ -1,11 +1,39 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource: '../src/Controller/'
+  type: attribute
 
 home:
   path: /
-  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
-  defaults:
-    template: 'home/index.html.twig'
+  controller: App\Controller\PagesController::home
+
+events:
+  path: /events
+  controller: App\Controller\NewsController::events
+
+rules:
+  path: /regles
+  controller: App\Controller\RulesController::index
+
+register:
+  path: /register
+  controller: App\Controller\RegisterController::index
+
+news:
+  path: /news
+  controller: App\Controller\NewsController::listNews
+
+packs:
+  path: /packs
+  controller: App\Controller\PacksController::index
+
+product_show:
+  path: /packs/{id}
+  controller: App\Controller\PacksController::show
+
+cards:
+  path: /cards
+  controller: App\Controller\CardsController::index
+
+admin:
+  resource: '../src/Controller/AdminController.php'
+  type: attribute

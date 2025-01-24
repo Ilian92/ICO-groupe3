@@ -1,0 +1,45 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/cards-carrousel.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/cards-carrousel.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="cards-carrousel-container">
+        <div class="card-details">
+            <div class="name-badge">
+                <h3 class="card-name">{{ cards[0].name }}</h3>
+                <div class="badge">
+                    <p class="badge-ico badge-vert-pomme">{{ cards[0].pack.name }}</p>
+                    <p class="badge-ico badge-jaune-moutarde">{{ cards[0].quantity }} cartes</p>
+                    <p class="badge-ico badge-rouge-corail"> carte {{ cards[0].type.name }}</p>
+                </div>
+            </div>
+            <p class="card-description">{{ cards[0].description }}</p>
+        </div>
+        <div class="carousel-container">
+            <button class="arrow left"></button>
+            <div class="carousel">
+                {% for i in 0..4 %}
+                    {% for card in cards %}
+                        <div class="carousel-item {% if loop.index == 0 and i == 0 %}active{% endif %}">
+                            <img src="{{ asset(card.image) }}" alt="{{ card.name }}">
+                            <div class="card-info" style="display: none;">
+                                <h3 class="card-name">{{ card.name }}</h3>
+                                <p class="card-description">{{ card.description }}</p>
+                                <div class="badge-info">
+                                    <p class="badge-ico badge-vert-pomme">{{ card.pack.name }}</p>
+                                    <p class="badge-ico badge-jaune-moutarde">{{ card.quantity }} cartes</p>
+                                    <p class="badge-ico badge-rouge-corail">carte {{ card.type.name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <button class="arrow right"></button>
+        </div>
+    </div>
+{% endblock %}

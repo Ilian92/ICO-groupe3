@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
+
+{% block title %}New News{% endblock %}
+
+{% block body %}
+<div class="dashboard_container">
+    <h1>Create new News</h1>
+
+    {{ include('news/_form.html.twig') }}
+
+    <a class="admin_button" href="{{ path('admin_news_index') }}">back to list</a>
+    </div>
+{% endblock %}

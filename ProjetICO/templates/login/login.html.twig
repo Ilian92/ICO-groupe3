@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connectez vous !{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<section class="register-body">
+    <form method="post">
+
+        {% if app.user %}
+            <div class="mb-3">
+                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            </div>
+        {% endif %}
+
+        <h1 class="register-title">Connectez vous !</h1>
+        <div class="form-container">
+        {% if error %}
+            <div class="errors center-text">Email ou mot de passe incorrecte</div>
+        {% endif %}
+        <label for="username" class="form-label">Email</label>
+        <input type="email" placeholder="Email" value="{{ last_username }}" name="_username" id="username" class="form-input" autocomplete="email" required autofocus>
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" name="_password" id="password" class="form-input"  placeholder="Mot de passe" autocomplete="current-password" required>
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+
+        {#
+            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+            See https://symfony.com/doc/current/security/remember_me.html
+
+            <div class="checkbox mb-3">
+                <input type="checkbox" name="_remember_me" id="_remember_me">
+                <label for="_remember_me">Remember me</label>
+            </div>
+        #}
+
+        <div class="btn-container">
+        <button class="btn" type="submit">
+            Se connecter
+        </button>
+        <p class="login-link">Pas encore inscrit ? <a href="{{ path('app_register') }}">Inscrivez-vous</a></p>
+        </div>
+        </div>
+    </form>
+    </section>
+{% endblock %}

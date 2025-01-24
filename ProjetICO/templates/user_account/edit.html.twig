@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mes informations{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}">
+{% endblock %}
+
+{% block body %}
+<section class="user-body">
+    <h1 class="user-title">Modifier mes informations</h1>
+    <div class="user-container">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn">Enregistrer les modifications</button>
+        {{ form_end(form) }}
+        <a href="{{ path('user_account') }}" class="btn">Annuler</a>
+    </div>
+</section>
+{% endblock %}

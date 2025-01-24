@@ -1,0 +1,464 @@
+:root {
+    --beige: #fcd3a1;
+    --bleu-royal: #3b60bc;
+    --rouge-corail: #ef4b4b;
+    --violet-amethyste: #7f3cba;
+    --vert-pomme: #46cc4f;
+    --jaune-moutarde: #fbc434;
+    --clear-grey: #f9f9f9;
+    --noir: #000000;
+}
+
+* {
+    transition: all 0.5s;
+}
+
+body {
+    background-color: var(--beige);
+    margin: 0;
+}
+
+h1,
+.distribution-row p,
+.counter-container span,
+.counter-container button {
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h3,
+.h3,
+section#victoire p:first-child,
+.banner-warning,
+.banner-info {
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+p,
+nav.menu ul li a,
+.btn-ico,
+a {
+    font-family: "Filson Pro";
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+p:last-child {
+    margin-bottom: 0px;
+}
+
+.btn-ico {
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: flex;
+    width: max-content;
+}
+
+.btn-ico.btn-ico-beige {
+    background-color: var(--beige);
+    color: var(--bleu-royal);
+    border: 2px solid var(--beige);
+}
+
+.btn-ico.btn-ico-beige:hover {
+    background-color: transparent;
+    color: var(--beige);
+    border: 2px solid var(--beige);
+}
+
+.btn-ico.btn-ico-rouge {
+    background-color: var(--rouge-corail);
+    color: var(--clear-grey);
+    border: 2px solid var(--rouge-corail);
+}
+
+.btn-ico.btn-ico-rouge:hover {
+    background-color: transparent;
+    color: var(--noir);
+    border: 2px solid var(--rouge-corail);
+}
+
+.btn-ico.btn-ico-bleu {
+    background-color: var(--bleu-royal);
+    color: var(--clear-grey);
+    border: 2px solid var(--bleu-royal);
+}
+
+.btn-ico.btn-ico-bleu:hover {
+    background-color: transparent;
+    color: var(--noir);
+    border: 2px solid var(--bleu-royal);
+}
+
+.btn-ico.btn-ico-rouge.bg-white:hover {
+    color: var(--noir);
+    background-color: transparent;
+}
+
+.btn-ico.btn-ico-vert {
+    background-color: var(--vert-pomme);
+    color: var(--noir);
+    border: 2px solid var(--vert-pomme);
+}
+
+.btn-ico.btn-ico-vert:hover {
+    background-color: transparent;
+    color: var(--noir);
+    border: 2px solid var(--vert-pomme);
+}
+
+.badge-ico {
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+    max-width: max-content;
+}
+
+.badge-ico.badge-vert-pomme {
+    background-color: var(--vert-pomme);
+}
+
+.badge-ico.badge-rouge-corail {
+    background-color: var(--rouge-corail);
+    color: var(--clear-grey);
+}
+
+.badge-ico.badge-bleu-royal {
+    background-color: var(--bleu-royal);
+    color: var(--clear-grey);
+}
+
+.badge-ico.badge-jaune-moutarde {
+    background-color: var(--jaune-moutarde);
+}
+
+.text-center {
+    text-align: center;
+}
+
+nav.menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav.menu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: transparent;
+    z-index: -1;
+}
+
+.mx-auto {
+    margin: auto;
+}
+
+ol {
+    list-style: none;
+}
+
+/*-------------- nav --------------*/
+
+nav.menu ul {
+    list-style-type: none;
+    background-color: var(--bleu-royal);
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: fixed;
+    z-index: 15;
+}
+
+.inner-body {
+    margin-top: 80px;
+    min-height: 100vh;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav.menu ul div.inner-menu {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--beige);
+}
+
+/* DROPDOWN */
+.dropdown .dropdown-menu {
+    opacity: 0;
+}
+
+.dropdown .dropdown-menu {
+    right: 20px;
+    border-radius: 10px;
+    max-width: 200px;
+    margin-top: 35px;
+    padding: 20px;
+    transform: translateY(-80px);
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.dropdown .dropdown-menu .dropdown-menu-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+img.icon-user {
+    height: 30px;
+}
+
+img.icon-logo {
+    height: 80px;
+}
+
+footer {
+    padding: 40px 50px;
+    background-color: var(--bleu-royal);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+footer .footer-inner {
+    display: flex;
+    gap: 30px;
+    font-family: "Filson Pro";
+    color: var(--beige);
+    justify-content: space-between;
+}
+
+footer .menu-footer ul {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 30px;
+}
+
+.container {
+    max-width: 1440px;
+    margin: auto;
+}
+
+/*-------------- News Items --------------*/
+
+.news-item,
+.events-item {
+    display: flex;
+    padding: 2em;
+    gap: 2em;
+    border-radius: 15px;
+    max-height: 264px;
+    margin: 30px 20px;
+}
+
+.news-item {
+    background-color: var(--bleu-royal);
+}
+
+.events-item {
+    background-color: var(--rouge-corail);
+}
+
+.news-item > div,
+.events-item > div {
+    width: 100%;
+}
+
+.news-item img,
+.events-item img {
+    height: 200px;
+    width: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    max-width: fit-content;
+}
+
+.news-container a {
+    text-decoration: none;
+}
+
+.events-contaier a {
+    text-decoration: none;
+}
+
+.news-item h2 {
+    color: white;
+}
+
+.events-item h2 {
+    color: white;
+}
+
+.news-date,
+.events-date {
+    color: black;
+    font-size: 14px;
+}
+
+.news-content,
+.events-content {
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 1180px;
+}
+
+.news-all-text,
+.events-all-text {
+    margin: auto 0;
+}
+
+.news-image,
+.events-image {
+    object-fit: contain;
+}
+
+.news-title,
+.events-title {
+    text-align: center;
+    padding-top: 40px;
+    margin-bottom: 60px;
+}
+
+/*-------------- Precise News and Events --------------*/
+
+.precise-news-container,
+.precise-events-container {
+    background-image: url(../assets/bg/carte.svg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0 100px;
+    mask-image: linear-gradient(to bottom, black 400px, rgba(0, 0, 0, 0));
+    mask-repeat: no-repeat;
+    & h1 {
+        text-align: center;
+    }
+}
+
+.precise-news-date,
+.precise-events-date {
+    text-align: end;
+    color: black;
+    font-weight: bold;
+    padding-right: 15px;
+}
+
+.precise-news-image-container,
+.precise-events-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    & img {
+        max-width: 400px;
+    }
+}
+
+.precise-news-content,
+.precise-events-content {
+    padding: 70px 50px;
+    text-align: left;
+    min-height: 50vh;
+    line-height: 1.5em;
+}
+
+/*-------------- Cards --------------*/
+
+.cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.card-item {
+    width: 250px;
+    height: auto;
+}
+
+.card-detail {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 2em;
+    gap: 2em;
+    width: 90%;
+    margin: auto;
+}
+
+.card-detail img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.card-infos > * {
+    padding: 0.2em 0;
+}
+
+.card-item h3 {
+    text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+    .card-detail {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+#user div {
+    font-family: "Filson Pro";
+    text-align: center;
+    display: grid;
+}
+#user div label {
+    font-family: "Chaloops W00 Md Reg";
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+#user div input {
+    margin: 20px auto;
+}

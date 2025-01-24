@@ -1,0 +1,88 @@
+.cards-carrousel-container {
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 75px;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+    min-height: 180px;
+}
+
+.card-name {
+    text-align: left;
+}
+
+.card-description {
+    flex: 2;
+    text-align: right;
+    max-width: 35%;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+    gap: 50px;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 150px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.carousel-item.active {
+    transform: scale(1.8);
+    margin: 0 40px;
+}
+
+.arrow {
+    position: absolute;
+    bottom: -70%;
+    background-image: url(../assets/icons/icon-marin.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(90deg);
+    height: 50px;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    background-color: transparent;
+}
+
+.arrow.left {
+    left: 39%;
+}
+
+.arrow.right {
+    right: 38%;
+    transform: rotate(-90deg);
+}
+
+.name-badge {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

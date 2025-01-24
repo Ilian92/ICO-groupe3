@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/packs.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}Packs{% endblock %}
+
+{% block body %}
+<h1>Packs</h1>
+{% if packs is empty %}
+    <p>Aucun article n'est à vendre.</p>
+{% else %}
+    <div class="packs container">
+        {% for item in packs %}
+            <article class="packs-item">
+                <h2><a href="{{ path('product_show', {'id': item.id}) }}">{{ item.name }}</a></h2>
+                <a href="{{ path('product_show', {'id': item.id}) }}"><img src="{{ item.image }}" alt="{{ item.name }}" /></a>
+                <a href="{{ path('product_show', {'id': item.id}) }}"><p>{{ item.description }}</p></a>
+                <a href="{{ path('product_show', {'id': item.id}) }}"><p>{{ item.price }} €</p></a>
+                <!-- <p>Publié le : {{ item.CreatedAt|date('d/m/Y H:i') }}</p> -->
+            </article>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}
