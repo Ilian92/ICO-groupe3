@@ -8,8 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\PacksRepository; // Import du repository Pack
-use Symfony\Component\HttpFoundation\Response; // Corrige la classe Response
+use App\Repository\PacksRepository;
+use Symfony\Component\HttpFoundation\Response;
 
 class PaymentController extends AbstractController
 {
@@ -18,12 +18,10 @@ class PaymentController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
 
-        // Vérifiez que les données sont valides
         $packId = $data['pack_id'] ?? null;
         $packName = $data['pack_name'] ?? 'Pack inconnu';
         $price = $data['price'] ?? 0;
 
-        // Assurez-vous que le pack existe
         $pack = $packsRepository->find($packId);
         if (!$pack) {
             return new JsonResponse(['error' => 'Pack non trouvé'], 404);
@@ -34,8 +32,6 @@ class PaymentController extends AbstractController
         $successUrl = $this->generateUrl('success_url', [], \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL);
         $cancelUrl = $this->generateUrl('cancel_url', [], \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL);
 
-
-        // Créez une session de paiement (ne sera pas atteint si dd est utilisé)
         $checkoutSession = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
             'line_items' => [[
@@ -55,9 +51,9 @@ class PaymentController extends AbstractController
             ],
             'success_url' => $successUrl,
             'cancel_url' => $cancelUrl,
-            'customer_email' => $this->getUser()->getEmail(), // Si l'utilisateur est connecté
-            'shipping_address_collection' => [ // Collecte l'adresse de livraison
-                'allowed_countries' => ['FR', 'US', 'CA'] // Liste des pays autorisés
+            'customer_email' => $this->getUser()->getEmail(),
+            'shipping_address_collection' => [
+                'allowed_countries' => ['FR']
             ],
         ]);
 

@@ -67,7 +67,6 @@ class NewsStatus
     public function removeNews(News $news): static
     {
         if ($this->news->removeElement($news)) {
-            // set the owning side to null (unless already changed)
             if ($news->getStatusId() === $this) {
                 $news->setStatusId(null);
             }
