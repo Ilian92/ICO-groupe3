@@ -1,0 +1,57 @@
+.distribution-container .distribution-header, 
+.distribution-container .distribution-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.distribution-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 50px;
+}
+
+.banner-info {
+    background-color: var(--jaune-moutarde);
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+section#distribution {
+    padding: 200px 0;
+}
+
+.counter-container .counter {
+    background-color: var(--clear-grey);
+    border-radius: 10px;
+    max-width: max-content;
+    padding: 20px 100px;
+    margin: auto;
+}
+
+.counter-container span,
+.counter-container button {
+    margin-bottom: 0;
+}
+
+.counter-container span {
+    margin: 0 20px;
+}
+
+.counter-container button {
+    border: none;
+    padding: 2px 10px;
+    background-color: var(--jaune-moutarde);
+    border-radius: 5px;
+}
+
+.counter-container button:hover {
+    cursor: pointer;
+}
+
+.distribution-row p {
+    margin-top: 70px;
+    margin-bottom: 0;
+    font-size: 50px;
+}

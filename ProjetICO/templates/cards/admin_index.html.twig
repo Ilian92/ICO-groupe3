@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
+{% block title %}Cards index{% endblock %}
+
+{% block body %}
+    <h1>Cards index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for card in cards %}
+            <tr>
+                <td>{{ card.id }}</td>
+                <td>{{ card.name }}</td>
+                <td>{{ card.description }}</td>
+                <td>{{ card.type.name }}</td>
+                <td>{{ card.quantity }}</td>
+                <td>{{ card.image }}</td>
+                <td>
+                    <a href="{{ path('admin_cards_show', {'id': card.id}) }}">show</a>
+                    <a href="{{ path('admin_cards_edit', {'id': card.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="admin_button" href="{{ path('admin_cards_new') }}">Create new</a>
+{% endblock %}

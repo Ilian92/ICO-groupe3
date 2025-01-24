@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
+
+{% block title %}Packs index{% endblock %}
+
+{% block body %}
+    <h1>Packs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Created_at</th>
+                <th>Fnac_link</th>
+                <th>Amazon_link</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pack in packs %}
+            <tr>
+                <td>{{ pack.id }}</td>
+                <td>{{ pack.name }}</td>
+                <td>{{ pack.description }}</td>
+                <td>{{ pack.price }}</td>
+                <td>{{ pack.image }}</td>
+                <td>{{ pack.createdAt ? pack.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ pack.fnacLink }}</td>
+                <td>{{ pack.amazonLink }}</td>
+                <td>
+                    <a href="{{ path('admin_packs_show', {'id': pack.id}) }}">show</a>
+                    <a href="{{ path('admin_packs_edit', {'id': pack.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="admin_button" href="{{ path('admin_packs_new') }}">Create new</a>
+{% endblock %}

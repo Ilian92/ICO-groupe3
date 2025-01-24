@@ -1,0 +1,145 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Règles{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/rules.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cards-carrousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cards-counter.css') }}">
+{% endblock %}
+    
+{% block javascripts %}
+    <script src="{{ asset('js/cards-carrousel.js') }}"></script>
+    <script src="{{ asset('js/cards-counter.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="rules-page">
+    <section class="header">
+        <div class="header-content">
+            <div class="header-content-text">
+                <h1>Règles du jeu</h1>
+                <p>Quelque part en pleine Mer, un groupe de Marins est chargé de transporter un Trésor, mais des pirates ont peut-être infiltré leur équipage afin de le voler.</p>
+                <p>Entre tempête, mal de mer, sirènes, trahisons et autres dangers, le trésor arrivera-t-il à bon port ?</p>
+                <a href="{{ asset('pdf/regles.pdf') }}"  class="btn-ico btn-ico-rouge" download>Télécharger les règles complètes</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="but" class="container ico">
+        <h2 class="text-center">Trois rôles, trois quêtes : qui émergera victorieux dans cette tempête de tromperie ?</h2>
+        <div class="img-cards">
+            {% for but in rules %}
+                {% if but.section == 'but-card' %}
+                    {% if but.title == 'marins' %}
+                        <div class="but-marin card-but-ico">
+                            <img src="{{ asset('assets/cards/marin.png') }}" alt="image de la carte du marin">
+                            <p>{{ but.content }}</p>
+                        </div>
+                    {% endif %}
+                    {% if but.title == 'pirates' %}
+                        <div class="but-pirate card-but-ico">
+                            <img src="{{ asset('assets/cards/pirate.png') }}" alt="image de la carte du pirate">
+                            <p>{{ but.content }}</p>
+                        </div>
+                    {% endif %}
+                    {% if but.title == 'sirene' %}
+                        <div class="but-sirene card-but-ico">
+                            <img src="{{ asset('assets/cards/sirene.png') }}" alt="image de la carte de la sirene">
+                            <p>{{ but.content }}</p>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <a class="btn-ico btn-ico-vert mx-auto" href="{{ path('cards_index') }}">Explorez les cartes et révélez leurs mystères</a>
+    </section>
+
+
+    <section id="materiel" class="container">
+        <h2>Matériel par pack:</h2>
+        {% for pack in packs %}
+            <p>Pack: {{ pack.name }}</p>
+            <p>Nombre total de cartes : {{ totalCardsInPacks[pack.id] }}</p>
+        {% endfor %}
+    </section>
+
+
+    <section id="cartes">
+        {% include 'rules/cards-carrousel.html.twig' %}
+    </section>
+
+    <section id="distribution" class="container">
+        {% include 'rules/counter.html.twig' %}
+    </section>
+
+
+    <section id="mise-en-place" class="container">
+        <h2>Mise en place du jeu</h2>
+        {% for game in rules %}
+            {% if game.section == 'mise-en-place' %}
+                {% if game.title == 'banner-warning' %}
+                    <p class="banner-warning">{{ game.content }}</p>
+                {% else %}
+                    <p>{{ game.content }}</p>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </section>
+
+
+    <section id="premier-voyage" class="container timeline">
+        {% for travel in rules %}
+            {% if travel.section == 'premier-voyage' %}
+                <h2 class="text-center">{{ travel.title }}</h2>
+                <div class="timeline-item {% if loop.index is odd %}right{% else %}left{% endif %}">
+                    <div class="timeline-content">
+                        <p>{{ travel.content }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+
+
+    <section id="suite-partie" class="container">
+        <h2>Suite de la partie</h2>
+        {% for game in rules %}
+            {% if game.section == 'suite-partie' %}
+                {% if game.title == 'banner-warning' %}
+                    <p class="banner-warning">{{ game.content }}</p>
+                {% else %}
+                    <p>{{ game.content }}</p>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </section>
+
+
+
+    <section id="victoire" class="container">
+        <h2 class="text-center">Condition de victoire</h2>
+        <div class="content-victoire">
+            {% for win in rules %}
+                {% if win.section == 'victoire' %}
+                    <p>{{ win.content }}</p>
+                {% endif %}
+            {% endfor %}            
+        </div>
+    </section>
+
+
+    <section class="download container">
+        <h2 class="text-center">Cartes et stratégies : tout ce qu’il faut savoir pour dominer les mers</h2>
+        <div class="grid-download">
+            <div class="rules">
+                <a href="{{ asset('pdf/regles.pdf') }}" download>Téléchargez les règles du jeu</a>
+            </div>
+            <div class="cards">
+                <a href="{{ path('cards_index') }}">Découvrez les secrets des cartes</a>
+            </div>
+        </div>
+    </section>s
+</div>
+{% endblock %}

@@ -3,7 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="/" />
+        <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="icon" href="{{ asset('assets/favicon.svg') }}" />
+        <link href="https://db.onlinewebfonts.com/c/92d107809e07d19ef1446daa906f8573?family=Chaloops+W00+Md+Reg" rel="stylesheet" type="text/css"/>
+        <link href="https://db.onlinewebfonts.com/c/2cc96cec0b01c9bea5a33ef2402a348c?family=Filson+Pro" rel="stylesheet" type="text/css"/>
         {% block stylesheets %}
         {% endblock %}
 
@@ -11,6 +17,28 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% include 'menu/index.html.twig' %}
+        <div class="inner-body">
+            {% block body %}{% endblock %}
+        </div>
+        <footer>
+            <div class="footer-inner container">
+                <nav class="menu-footer">
+                    <ul>
+                        <li><a href="#">Légal</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">À propos des pubs</a></li>
+                    </ul>
+                </nav>
+                <nav class="menu-footer">
+                    <ul>
+                        <li><a href="{{ path('rules') }}">Règles</a></li>
+                        <li><a href="{{ path('news') }}">News</a></li>
+                        <li><a href="{{ path('events') }}">Events</a></li>
+                    </ul>
+                </nav>
+                <small>© 2025 ICO. All rights reserved.</small>
+            </div>
+        </footer>
     </body>
 </html>

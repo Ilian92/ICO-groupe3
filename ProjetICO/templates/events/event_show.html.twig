@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Événements - {{ singleEvent.title }}{% endblock %}
+
+{% block body %}
+<header class="precise-events-container">
+    <h1>{{ singleEvent.title }}</h1>
+    <p class="precise-events-date">Publié le {{ singleEvent.createdAt|date('d/m/Y') }} à {{ singleEvent.createdAt|date('H:i') }}</p>
+    <div class="precise-events-image-container"><img src="{{ singleEvent.image }}" alt="{{ singleEvent.title }}" /></div>
+</header>
+<p class="precise-events-content">{{ singleEvent.content }}</p>
+
+{% endblock %}

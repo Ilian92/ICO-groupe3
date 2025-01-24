@@ -1,0 +1,81 @@
+.register-title {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+
+.register-subtitle {
+    text-align: center;
+    font-size: 25px;
+}
+
+.register-body {
+    padding-top: 60px;
+    padding-bottom: 125px;
+    background-image: url(../assets/bg/carte.svg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 30px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-input::placeholder {
+    font-family: "Filson Pro";
+}
+
+.form-label {
+    font-family: "Filson Pro";
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #3b60bc;
+    border: none;
+    color: white;
+    width: 268px;
+    height: 43px;
+    border-radius: 12px;
+    font-family: "Filson Pro";
+}
+
+.btn:hover {
+    background-color: var(--rouge-corail);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.errors {
+    color: red;
+    font-family: "Filson Pro";
+}
+
+.center-text {
+    text-align: center;
+}

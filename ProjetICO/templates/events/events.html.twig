@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Événements{% endblock %}
+
+{% block body %}
+    <h1 class="events-title">Événements</h1>
+
+    {% if events is empty %}
+        <p>Aucun événement disponible pour le moment.</p>
+    {% else %}
+            {% for event in events %}
+            <a href="{{ path('events_show', {'id': event.id}) }}">
+                <article class="events-item">
+                    <img class="events-image" src="{{ event.image }}" alt="{{ event.title }}">
+                    <div class="events-all-text">
+                        <h2>{{ event.title }}</h2>
+                        <p class="events-date">Du {{ event.StartDate|date('d/m/Y') }} au {{ event.EndDate|date('d/m/Y') }}</p>
+                        <p class="events-content">{{ event.content }}</p>
+                    </div> 
+                </article> 
+            </a>
+            {% endfor %}
+    {% endif %}
+{% endblock %}
