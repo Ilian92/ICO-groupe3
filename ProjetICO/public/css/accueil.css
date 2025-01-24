@@ -102,6 +102,15 @@ section.ico.container p {
     flex-direction: column;
     gap: 10px;
     margin: auto;
+    width: 35%;
+}
+
+.card-event-news .content p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
 
 .card-event-news .badge-ico {
