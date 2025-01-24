@@ -38,7 +38,10 @@ h2 {
 }
 
 h3,
-.h3 {
+.h3,
+section#victoire p:first-child,
+.banner-warning,
+.banner-info {
     font-family: "Chaloops W00 Md Reg";
     font-size: 20px;
     line-height: 20px;

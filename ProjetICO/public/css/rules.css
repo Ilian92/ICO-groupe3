@@ -150,25 +150,25 @@ section {
 
 .timeline {
     position: relative;
-    padding: 20px 0;
-    margin: 20px 0;
+    margin-top: 100px;
+    padding-top: 0;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 15%;
     bottom: 0;
     left: 50%;
     width: 4px;
-    background: #ddd;
+    background: var(--clear-grey);
     transform: translateX(-50%);
 }
 
 .timeline-item {
     position: relative;
     width: 50%;
-    padding: 20px;
+    padding: 20px 40px;
     box-sizing: border-box;
 }
 
@@ -183,12 +183,11 @@ section {
 .timeline-item::before {
     content: '';
     position: absolute;
-    top: 20px;
+    top: 42%;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #fff;
-    border: 4px solid #ddd;
+    background: var(--vert-pomme);
     z-index: 1;
 }
 
@@ -202,9 +201,9 @@ section {
 
 .timeline-content {
     padding: 20px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background: var(--clear-grey);
+    border: 5px solid var(--vert-pomme);
+    border-radius: 13px;
     position: relative;
     z-index: 2;
 }
@@ -215,4 +214,63 @@ section {
 
 .timeline-item:first-of-type {
     display: none;
+}
+
+section#victoire p:first-child {
+    background-color: var(--vert-pomme);
+    padding: 50px 100px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.download .grid-download {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-download {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    margin: auto;
+    max-width: 80%;
+    margin-top: 40px;
+}
+
+.grid-download .rules a,
+.grid-download .rules a:hover {
+    padding: 20px 50px;
+    background-color: var(--vert-pomme);
+    color: var(--black);
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-download .rules a,
+.grid-download .cards a {
+    text-decoration: none;
+}
+
+.grid-download .cards a,
+.grid-download .cards a:hover {
+    padding: 20px 50px;
+    background-color: var(--violet-amethyste);
+    color: var(--beige);
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section#suite-partie p,
+section#mise-en-place p {
+    margin-bottom: 20px;
+}
+
+.banner-warning,
+.banner-info {
+    margin: 30px 0 !important;
 }

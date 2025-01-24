@@ -92,7 +92,7 @@
     <section id="premier-voyage" class="container timeline">
         {% for travel in rules %}
             {% if travel.section == 'premier-voyage' %}
-                <h2>{{ travel.title }}</h2>
+                <h2 class="text-center">{{ travel.title }}</h2>
                 <div class="timeline-item {% if loop.index is odd %}right{% else %}left{% endif %}">
                     <div class="timeline-content">
                         <p>{{ travel.content }}</p>
@@ -119,29 +119,27 @@
 
 
     <section id="victoire" class="container">
-        <h2>Condition de victoire</h2>
-        {% for win in rules %}
-            {% if win.section == 'victoire' %}
-                <h2>{{ win.title }}</h2>
-                <p>{{ win.content }}</p>
-            {% endif %}
-        {% endfor %}
-    </section>
-
-
-    <section class="downloads container">
-        <h2>Téléchargez les Ressources du Jeu</h2>
-        <div class="download-list">
-            <div class="download-item">
-                <p><a href="{{ asset('pdf/rules.pdf') }}" download>Télécharger les règles complètes</a></p>
-            </div>
-            <div class="download-item">
-                <p><a href="{{ asset('pdf/characters.pdf') }}" download>Télécharger les cartes personnages</a></p>
-            </div>
-            <div class="download-item">
-                <p><a href="{{ asset('pdf/actions.pdf') }}" download>Télécharger les cartes actions</a></p>
-            </div>
+        <h2 class="text-center">Condition de victoire</h2>
+        <div class="content-victoire">
+            {% for win in rules %}
+                {% if win.section == 'victoire' %}
+                    <p>{{ win.content }}</p>
+                {% endif %}
+            {% endfor %}            
         </div>
     </section>
+
+
+    <section class="download container">
+        <h2 class="text-center">Cartes et stratégies : tout ce qu’il faut savoir pour dominer les mers</h2>
+        <div class="grid-download">
+            <div class="rules">
+                <a href="{{ asset('pdf/regles.pdf') }}" download>Téléchargez les règles du jeu</a>
+            </div>
+            <div class="cards">
+                <a href="{{ path('cards_index') }}">Découvrez les secrets des cartes</a>
+            </div>
+        </div>
+    </section>s
 </div>
 {% endblock %}
